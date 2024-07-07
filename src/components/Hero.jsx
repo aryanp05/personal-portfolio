@@ -96,7 +96,7 @@ const Hero = () => {
               variants={container(3)}
               initial="hidden"
               whileInView="visible"
-              className="relative text-2xl px-1 py-5  mb-12 lg:mb-18 cursor-pointer"
+              className="relative text-2xl px-1 py-5  mb-12 lg:mb-20 cursor-pointer"
             >
               <h2 className="inline-block border border-2 border-white rounded upercase text-white py-2 px-4 lg:px-12 font-medium hover:bg-gradient-to-r hover:from-yellow-400 hover:via-pink-500 hover:to-purple-500 bg-clip-text text-lg lg:text-2xl tracking-tight hover:text-transparent hover:border-gray-400 transition duration-500 ease-in-out">
                 🛠 Technologies 🛠
