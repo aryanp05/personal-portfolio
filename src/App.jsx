@@ -16,7 +16,7 @@ const App = () => {
       {/* <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div> */}
       </div>
 
-      <div className="container mx-auto px-8 ml-16 mr-16">
+      <div className="container mx-auto lg:px-8 mr-2 ml-2 lg:ml-16 lg:mr-16">
       <Navbar />
       <Home />
       <Hero/>
