@@ -10,11 +10,11 @@ import projectf3 from "../assets/projects/project3f.jpg"
 import projectf4 from "../assets/projects/project4f.png"
 import projectf5 from "../assets/projects/project5f.png"
 
-export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Computer Science student at The University of Waterloo and Business Administration Student at Wilfrid Laurier University pursuing a career in software development, ML/AI, and finance."
+export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Computer Science student @ The University of Waterloo & Business Administration Student @ Wilfrid Laurier University pursuing a career in software development, ML/AI, and finance."
 
-export const HERO_CONTENT2 = "💻 I’m proficient in full-stack development, leveraging Next.js/React.js with TailwindCSS for front-end design, Python, C, and C++ for  back-end applications, Flask for creating web applications, Tensorflow, PyTorch, and Scikit Learn for machine learning applications, MongoDB and SQLite for database management,  and Azure + other cloud services for cloud hosting!"
-export const HERO_CONTENT205 = "☁️ I am certified in Azure fundamentals (AZ900) and Azure AI Fundamentals (AI900) and love to work and experiment with cloud based technologies."
-export const HERO_CONTENT3 = "I am looking for Winter 2025 internships"
+export const HERO_CONTENT2 = "💻 I’m proficient in full-stack development, leverage Next.js/React.js with TailwindCSS for front end, Python, C, and C++ for back-end applications, TensorFlow and Pytorch for machine learning, MongoDB and SQLite for database management, and Azure for cloud hosting!"
+export const HERO_CONTENT205 = "☁️ I am certified in Azure Cloud Fundamentals (AZ900) and Azure AI Fundamentals (AI900), and love to work with cloud based technologies."
+export const HERO_CONTENT3 = "I am looking for Winter 2025 internships."
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
 
 export const EXPERIENCES = [

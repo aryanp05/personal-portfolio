@@ -26,7 +26,7 @@ const Education = () => {
   ];
 
   return (
-    <div className="border-b border-neutral-900 pb-4">
+    <div id="education" className="border-b border-neutral-900 pb-4 mx-6">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -35,11 +35,11 @@ const Education = () => {
       >
         Education
       </motion.h2>
-      <div className="grid grid-cols-2 gap-8 lg:gap-x-40 w-full lg:w-3/4 mx-auto">
+      <div className="flex flex-col gap-8 lg:flex-row lg:gap-x-40 w-full lg:w-3/4 mx-auto">
         {EDUCATIONS.map((education, index) => (
-          <div key={index} className="flex mb-8">
+          <div key={index} className="flex flex-col lg:flex-row mb-8">
             {/* Left column for logo */}
-            <div className=" w-1/2 h-1/2 lg:w-1/4">
+            <div className="w-full lg:w-1/4 mb-4 lg:mb-0">
               <img src={education.logoUrl} alt="School Logo" className="h-20 mx-auto" /> {/* Increased logo size */}
             </div>
             {/* Right column for details */}
@@ -47,7 +47,7 @@ const Education = () => {
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.5 }}
-              className="w-full max-w-xl lg:w-3/4"
+              className="w-full lg:w-3/4"
             >
               <h6 className="mb-2 text-xl font-semibold">{education.schoolName}</h6> {/* Increased heading size */}
               <p className="mb-2 text-lg text-neutral-300">{education.degreeType}<span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text  tracking-tight text-transparent">{education.degreeName}</span></p> {/* Increased text size */}

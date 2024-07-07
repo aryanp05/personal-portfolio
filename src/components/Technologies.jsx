@@ -114,7 +114,7 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
           )}
         </motion.div>
         <div className="flex items-center">
-          <p className="ml-4 text-xl text-neutral-300 font-bold hover:scale-110">
+          <p className="ml-4 text-base lg:text-xl text-neutral-300 font-bold hover:scale-110">
             {skillName}
           </p>
         </div>
@@ -196,7 +196,7 @@ const Technologies = () => {
 
 
       </div>
-      <div className="grid grid-cols-2 gap-8 lg:gap-x-40 w-full lg:w-3/4 mx-auto mt-24">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 gap-x-20 lg:gap-x-40 w-4/5 lg:w-3/4 mx-auto mt-24">
         <SkillItem skillName="Python" hrWidth="90%" LR={-150} />
         <SkillItem skillName="C" hrWidth="85%" LR={150}/>
         <SkillItem skillName="C++" hrWidth="80%" LR={-150}/>

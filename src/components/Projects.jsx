@@ -17,7 +17,7 @@ const Projects = () => {
 
 
   return (
-    <div className="border-b border-neutral-900 pb-4">
+    <div id="projects" className="border-b border-neutral-900 pb-4">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
@@ -55,7 +55,7 @@ const Projects = () => {
             ></span>
           </div>
           <span
-            className={`ml-2 ${
+            className={`ml-6 ${
               category === "finance"
                 ? "bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text tracking-tight text-transparent"
                 : "bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text tracking-tight text-transparent"
@@ -65,7 +65,7 @@ const Projects = () => {
           </span>
         </div>
       </div>
-      <div>
+      <div className="mx-6">
         {filteredProjects.map((project, index) => (        
           <div key={`${index}-${animationKey}`} className="mb-8 flex flex-wrap lg:justify-center">          
             <motion.div
