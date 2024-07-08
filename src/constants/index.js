@@ -19,21 +19,28 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
-    year: "2024 - Present",
+    year: "June 2024 - Present",
     role: "Software Engineer",
     company: "Hype Docs",
-    description: ``,
+    description: `Designed and developed user interfaces, ensuring responsive design for various devices. Optimized for cross browser display and maintained/updated existing features and applications.`,
     technologies: [],
   },
   {
-    year: "2019 - 2023",
+    year: "May 2024 - Present",
+    role: "Software Engineer",
+    company: "Accelerate with Azure",
+    description: `Engineered a full-stack financial investment AI advisor under the management of Microsoft and Microsoft Employees in an Azure development team. Used python and Azure AI Services to create a functional investment advisor AI model & chat bot backend, and react.js with tailwindcss for an attractive front end.`,
+    technologies: ["Python", "Azure", "Azure AI Services", "React.js", "Tailwind"],
+  },
+  {
+    year: "Sept 2019 - June 2023",
     role: "Finance/Accounting Champion & President",
     company: "Ontario DECA",
     description: `Placed 3rd in the world for Accounting, utilising python scripts to assist in accounting issue detection. Placed 1st in Canada for Finance Consulting on presentation about service transition to an online platform using technology to make financial models. President of prestigious 200+ member chapter, organising events with 1,800+ attendees.`,
     technologies: ["Python", "Excel", "VBA", "R"],
   },
   {
-    year: "2020 - 2021",
+    year: "Sep 2020 - Nov 2021",
     role: "Software Engineer & Founder",
     company: "Neonic Wraps",
     description: `Designed and developed a fully functional e-commerce website with HTML, CSS, and Javascript. Managed inventory and performed queries using SQL and mongoDB. Achieved $10k+ in sales through utilising digital marketing channels.`,
@@ -114,7 +121,7 @@ export const PROJECTS = [
     image: project4,
     description:
       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
-      links: [],
+      links: [["Github", "https://github.com/aryanp05/personal-portfolio"]],
       technologies: ["React", "Next.js", "Tailwind"],
   },
   {
