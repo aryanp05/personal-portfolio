@@ -1,8 +1,9 @@
-# React + Vite
+# Visit My Personal Portfolio Website
+### **[Click Here](https://aryan-patel-portfolio.vercel.app/)** or click on the image below
+[![Website-Screenshot](screenshot/aboutme.png)](https://aryan-patel-portfolio.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Overview of Creating My Personal Portfolio
+- Made using React.js and TailWindCSS from scratch
+- Used Motion Framer to add animations
+- Tested and optimized for cross-browser compatibility, specifically Chrome and Safari
+- Fully adjusted and optimized browser experience for Mobile View
