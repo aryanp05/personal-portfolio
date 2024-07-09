@@ -23,7 +23,7 @@ export const EXPERIENCES = [
     role: "Software Engineer",
     company: "Hype Docs",
     description: `Designed and developed user interfaces, ensuring responsive design for various devices. Optimized for cross browser display and maintained/updated existing features and applications.`,
-    technologies: [],
+    technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
     year: "May 2024 - Present",
@@ -98,7 +98,7 @@ export const PROJECTS = [
     description:
       "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
       links: [["Demo Vid", "https://youtu.be/i0l1VKhnkzo"],["Github", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
-      technologies: ["Python", "ML/AI", "Open-CV", "Mediapipe", "Scikit Learn"],
+      technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
     title: "Mock Investor",
