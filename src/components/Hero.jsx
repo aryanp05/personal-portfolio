@@ -69,7 +69,7 @@ const Hero = () => {
               className="my-2 max-w-xl pb-2 py-6 font-light tracking-tight text-center lg:text-left"
             >
               {HERO_CONTENT3}{" "}
-              <a href="https://drive.google.com/file/d/1InFB_2IJVt0R4vwf2jARGHyam_V9z-WL/view?usp=sharing">
+              <a href="https://drive.google.com/file/d/1WsA24cBGAYkH8RP64wjNamMR2i7gOeIT/view?usp=sharing">
                 Click here for my{" "}
                 <span className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text font-bold tracking-tight text-transparent">
                   Resume
