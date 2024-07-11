@@ -97,7 +97,7 @@ export const PROJECTS = [
     image: project1,
     description:
       "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
-      links: [["Demo Vid", "https://youtu.be/i0l1VKhnkzo"],["Github", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
+      links: [["Demo Vid", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Github", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
       technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
