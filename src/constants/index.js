@@ -33,6 +33,13 @@ export const EXPERIENCES = [
     technologies: ["Python", "Azure", "Azure AI Services", "React.js", "Tailwind"],
   },
   {
+    year: "May 2023 - Aug 2023",
+    role: "Software & AI Engineer",
+    company: "Incraftables",
+    description: `Implemented an ML algorithm to analyze user browsing behavior and transaction history, dynamically adjusting products shown on the homepage and suggesting products at checkout, resulting in an 18% increase in average order value. Collected user interaction data using JavaScript elements and vectorized products to better train AI, increasing the number of products browsed per session by 54%.`,
+    technologies: ["Python", "JavaScript", "TensorFlow", "HTML", "SQL"],
+  },
+  {
     year: "Sept 2019 - June 2023",
     role: "Finance/Accounting Champion & President",
     company: "Ontario DECA",
