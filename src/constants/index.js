@@ -22,8 +22,8 @@ export const EXPERIENCES = [
     year: "June 2024 - Present",
     role: "Software Engineer",
     company: "Hype Docs",
-    description: `Designed and developed user interfaces, ensuring responsive design for various devices. Optimized for cross browser display and maintained/updated existing features and applications.`,
-    technologies: ["HTML", "CSS", "JavaScript"],
+    description: `Developed new product software features to address client requests and enhance core functionality, leading to the acquisition of new clients and improved overall user satisfaction and product capabilities. Refactored and optimized code to improve runtime by 25% and transitioned to Supabase to reduce query times by 48%.`,
+    technologies: ["JavaScript", "Slack API", "Bubble", "Supabase"],
   },
   {
     year: "May 2024 - Present",
