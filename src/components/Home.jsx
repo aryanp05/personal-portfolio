@@ -15,7 +15,7 @@ const container = (delay) => ({
 
 const Home = () => {
   return (
-    <div id="home" className="border-b border-neutral-900 ">
+    <div id="home" className="border-b border-neutral-900 pt-32 ">
       <div className="flex flex-col items-center ">
         <motion.h2
           variants={container(0)}
@@ -47,7 +47,7 @@ Developer | Entrepreneur | Innovator
         variants={container(4)}
         initial="hidden"
         animate="visible"
-        className="relative text-2xl px-1 py-5 my-8 mb-96 cursor-pointer ">
+        className=" text-2xl px-1 py-5 my-8 mb-72 cursor-pointer ">
           <h2 className="inline-block border border-2 border-white rounded upercase text-white py-2 px-4 lg:px-12 font-medium hover:bg-gradient-to-r hover:from-yellow-400 hover:via-pink-500 hover:to-purple-500 bg-clip-text text-lg lg:text-2xl tracking-tight hover:text-transparent hover:border-gray-400 transition duration-500 ease-in-out">
             Learn About Me 
           </h2>

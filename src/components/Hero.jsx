@@ -91,15 +91,15 @@ const Hero = () => {
           </div>
         </div>
         <div className=" flex w-full items-center justify-center lg:mt-16">
-          <AnchorLink className="anchor-link" offset={50} href="#tech">
+          <AnchorLink className="anchor-link" offset={50} href="#recentProjects">
             <motion.div
               variants={container(3)}
               initial="hidden"
               whileInView="visible"
-              className="relative text-2xl px-1 py-5  mb-12 lg:mb-20 cursor-pointer"
+              className="text-2xl px-1 py-5  mb-12 lg:mb-20 cursor-pointer"
             >
               <h2 className="inline-block border border-2 border-white rounded upercase text-white py-2 px-4 lg:px-12 font-medium hover:bg-gradient-to-r hover:from-yellow-400 hover:via-pink-500 hover:to-purple-500 bg-clip-text text-lg lg:text-2xl tracking-tight hover:text-transparent hover:border-gray-400 transition duration-500 ease-in-out">
-                🛠 Technologies 🛠
+                🛠 Projects 🛠
               </h2>
             </motion.div>
           </AnchorLink>

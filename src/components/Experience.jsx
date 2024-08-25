@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div id="experience" className="border-b border-neutral-900 pb-4 mx-5">
+    <div id="experience" className="border-b border-neutral-900 pb-4 mx-5 pt-2">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
-        class="my-20 text-center text-4xl"
+        initial={{ opacity: 0, y: -75 }}
+        transition={{ duration: 1}}
+        class="my-20 text-center text-5xl font-bold"
       >
         Experience
       </motion.h2>

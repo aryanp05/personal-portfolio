@@ -8,6 +8,8 @@ import Projects from './components/Projects'
 import Home from './components/Home'
 import Education from './components/Education'
 import Credentials from './components/Credentials'
+import Endbar from './components/Endbar'
+import RecentProjects from './components/RecentProjects'
 const App = () => {
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
@@ -20,12 +22,12 @@ const App = () => {
       <Navbar />
       <Home />
       <Hero/>
-      <Technologies />
+      <RecentProjects />
       <Experience />
-      <Projects />
       <Education />
+      <Technologies />
       <Credentials />
-      <Navbar />
+      <Endbar />
       </div>
       
     </div>

@@ -119,14 +119,10 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
           </p>
         </div>
       </div>
-      <div className="relative w-full mt-8">
-        <div className="absolute right-0 top-[-1.5rem] text-xs font-semibold text-black px-2 py-0.5 rounded bg-neutral-300 z-10" style={{ right: distanceString }}>
-          {hrWidth}
-          <div className="absolute left-1/2 bottom-[-0.25rem] h-2 w-2 bg-neutral-300 transform -translate-x-1/2 rotate-45"></div>
-        </div>
-        <hr className="absolute top-0 w-full border-t-8 lg:border-t-16 rounded border-neutral-800" />
+      <div className=" w-full mt-8">
+        
         <hr
-          className="relative w-full border-t-8 lg:border-t-16 rounded border-neutral-300 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
+          className="w-full border-t-8 lg:border-t-16 rounded border-neutral-300 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
           style={{ width: hrWidth }}
         />
       </div>{" "}
@@ -136,12 +132,12 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
 
 const Technologies = () => {
   return (
-    <div id="tech" className=" border-b border-neutral-800 pb-24">
+    <div id="tech" className=" border-b border-neutral-800 pb-24 pt-2 mt-48">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
-        transition={{ duration: 1.5 }}
-        className="my-20 mb-10 text-center text-3xl"
+        initial={{ opacity: 0, y: -75 }}
+        transition={{ duration: 1 }}
+        className="my-20 mb-10 text-center text-5xl font-bold"
       >
         Technologies
       </motion.h2>

@@ -17,12 +17,12 @@ const Projects = () => {
 
 
   return (
-    <div id="projects" className="border-b border-neutral-900 pb-4">
+    <div id="projects" className="border-b border-neutral-900 pb-4 pt-2">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
-        className="my-20 text-center text-4xl"
+        initial={{ opacity: 0, y: -75 }}
+        transition={{ duration: 1 }}
+        className="my-20 text-center text-5xl font-bold"
       >
         Projects
       </motion.h2>
@@ -30,7 +30,7 @@ const Projects = () => {
       <div className="flex justify-center mb-16">
         <div className="flex items-center">
           <span
-            className={`mr-2 ${
+            className={`mr-4 ${
               category === "software"
                 ? "bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text tracking-tight text-transparent"
                 : "bg-gradient-to-r from-gray-500 to-gray-400 bg-clip-text tracking-tight text-transparent"
@@ -55,7 +55,7 @@ const Projects = () => {
             ></span>
           </div>
           <span
-            className={`ml-6 ${
+            className={`ml-4 ${
               category === "finance"
                 ? "bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text tracking-tight text-transparent"
                 : "bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text tracking-tight text-transparent"
@@ -65,6 +65,7 @@ const Projects = () => {
           </span>
         </div>
       </div>
+      <div className="my-2"></div>
       <div className="mx-6">
         {filteredProjects.map((project, index) => (        
           <div key={`${index}-${animationKey}`} className="mb-8 flex flex-wrap lg:justify-center">          

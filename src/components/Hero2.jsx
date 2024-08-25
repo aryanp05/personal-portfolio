@@ -15,7 +15,7 @@ const container = (delay) => ({
 
 const Hero2 = () => {
   return (
-    <div id="home" className="border-b border-neutral-900 ">
+    <div id="home" className="border-b border-neutral-900">
       <div className="flex flex-col items-center ">
         <motion.h2
           variants={container(0)}
