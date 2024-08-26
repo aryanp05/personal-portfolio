@@ -24,7 +24,11 @@ const RecentProjects = () => {
 
   return (
     <div id="recentProjects" className="py-20">
-      <h1 className="text-5xl font-bold text-center mb-12">
+      <motion.h1 
+      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: -75 }}
+      transition={{ duration: 1 }}
+      className="text-5xl font-bold text-center mb-12">
         A Small Selection Of <br />
         <span
           className={`${
@@ -35,7 +39,7 @@ const RecentProjects = () => {
         >
           Recent {category} Projects
         </span>
-      </h1>
+      </motion.h1>
       <div className="flex justify-center mt-8 mb-16">
         <div className="flex items-center">
           <span
@@ -151,6 +155,44 @@ const RecentProjects = () => {
             </PinContainer>
           </motion.div>
         ))}
+      </div>
+      <div className="flex justify-center mt-24 mb-16">
+        <div className="flex items-center">
+          <span
+            className={`mr-4 ${
+              category === "Software"
+                ? "bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text tracking-tight text-transparent"
+                : "bg-gradient-to-r from-gray-500 to-gray-400 bg-clip-text tracking-tight text-transparent"
+            }`}
+          >
+            Software Projects
+          </span>
+          <div
+            className={`relative inline-block w-24 h-8 transition duration-200 ease-linear ${
+              category === "Software"
+                ? "bg-gradient-to-r from-yellow-400 to-pink-500"
+                : "bg-gradient-to-r from-pink-500 to-purple-500"
+            } rounded-full cursor-pointer`}
+            onClick={handleCategoryChange}
+          >
+            <span
+              className={`absolute left-0 top-0 h-8 w-8 bg-white border-2 border-gray-300 rounded-full transition transform ${
+                category === "Software"
+                  ? "translate-x-16 border-yellow-400"
+                  : "translate-x-0 border-purple-500"
+              }`}
+            ></span>
+          </div>
+          <span
+            className={`ml-4 ${
+              category === "Finance"
+                ? "bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text tracking-tight text-transparent"
+                : "bg-gradient-to-r from-gray-400 to-gray-500 bg-clip-text tracking-tight text-transparent"
+            }`}
+          >
+            Finance Projects
+          </span>
+        </div>
       </div>
     </div>
   );
