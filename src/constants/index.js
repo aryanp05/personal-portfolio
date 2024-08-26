@@ -225,7 +225,7 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Get Trash AI - 3rd @ Google DSC Hack With Ai",
+    title: "Get Trash AI - 3rd @ Google SDC Hack With Ai",
     des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
     img: p5,
     link: "https://devpost.com/software/gettrash",
