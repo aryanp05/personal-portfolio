@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import MicrosoftAzure from "../assets/microsoftazure.png";
 import AZ900 from "../assets/az900.png";
 import AI900 from "../assets/ai900.png";
-import Bloomberg from "../assets/bloomberg.jpeg";
 import { useState } from "react";
 
 const Credentials = () => {
@@ -25,22 +24,21 @@ const Credentials = () => {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 justify-items-center">
         {/* Certificate Section 1 */}
         <div
-          className="flex mb-8 w-full max-w-xl transform transition-transform hover:scale-105"
+          className="flex flex-col lg:flex-row items-center mb-8 w-full max-w-xl transform transition-transform hover:scale-105"
           onMouseEnter={() => setHoverAZ(AZ900)}
           onMouseLeave={() => setHoverAZ(MicrosoftAzure)}
         >
-          <div className="w-1/3 flex justify-center">
+          <div className="w-full lg:w-1/3 flex justify-center mb-4 lg:mb-0">
             <img
               src={hoverAZ}
               alt="Credential Logo"
-              className="h-32 w-auto mr-40 lg:mr-32 transform transition duration-300 ease-in-out"
-            />
+              className="h-20 w-auto lg:h-32 lg:mr-32 transform transition duration-300 ease-in-out"            />
           </div>
           <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="flex-grow"
+            className="flex-grow text-center lg:text-left"
           >
             <h6 className="mb-2 text-xl font-semibold">Azure Fundamentals: AZ-900</h6>
             <ul className="list-disc pl-6">
@@ -62,22 +60,21 @@ const Credentials = () => {
 
         {/* Certificate Section 2 */}
         <div
-          className="flex mb-8 w-full max-w-xl transform transition-transform hover:scale-105"
+          className="flex flex-col lg:flex-row items-center mb-8 w-full max-w-xl transform transition-transform hover:scale-105"
           onMouseEnter={() => setHoverAI(AI900)}
           onMouseLeave={() => setHoverAI(MicrosoftAzure)}
         >
-          <div className="w-1/3 flex justify-center">
+          <div className="w-full lg:w-1/3 flex justify-center mb-4 lg:mb-0">
             <img
               src={hoverAI}
               alt="Credential Logo"
-              className="h-32 w-auto mr-40 lg:mr-32 transform transition duration-300 ease-in-out"
-            />
+              className="h-20 w-auto lg:h-32 lg:mr-32 transform transition duration-300 ease-in-out"            />
           </div>
           <motion.div
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="flex-grow ml-4"
+            className="flex-grow text-center lg:text-left"
           >
             <h6 className="mb-2 text-xl font-semibold">Azure AI Fundamentals: AI-900</h6>
             <ul className="list-disc pl-6">
@@ -96,7 +93,6 @@ const Credentials = () => {
             </a>
           </motion.div>
         </div>
-
       </div>
     </div>
   );

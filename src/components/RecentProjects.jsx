@@ -92,7 +92,7 @@ const RecentProjects = () => {
               title={item.link}
               href={"https://twitter.com/mannupaaji"}
             >
-              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h[40vh] h-[35vh] mb-10">
+              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h[40vh] lg:h-[35vh] mb-10">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
@@ -120,6 +120,7 @@ const RecentProjects = () => {
                 {item.des}
               </p>
               <div className="mt-1"></div>
+              <div className="flex flex-wrap">
               {item.technologies.map((tech, index) => (
                 <span
                   key={index}
@@ -128,11 +129,12 @@ const RecentProjects = () => {
                   {tech}
                 </span>
               ))}
+              </div>
+              
 
               <br />
-              <div className="mt-2"></div>
 
-              <div className="flex items-center justify-between mt-7 mb-3">
+              <div className="flex items-center justify-between mt-5 mb-3">
                 <div className="justify-start">
                   {item.links.map((link, index) => (
                     <span
