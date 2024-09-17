@@ -1,5 +1,6 @@
 import testfor from "../assets/projects/p1testfor2.png"
 
+import p0 from "../assets/projects/p0.jpg";
 import p1 from "../assets/projects/p1.png";
 import p2 from "../assets/projects/p2.png";
 import p3 from "../assets/projects/p3.png";
@@ -185,6 +186,15 @@ export const PROJECTS = [
 export const projects = [
   {
     id: 1,
+    title: "Dime Defender - Hack The North 2024 Winner",
+    des: "A chrome extension for Shopify/Amazon stores to control user spending by locking the PayNow button and simulating a courtroom between two AI lawyers debating whether you should purchase the product",
+    img: p0,
+    link: "https://youtu.be/I5dP9mbnx4M?t=5962",
+    linkName: "View Demo Video",
+    links: [["Devpost Link", "https://devpost.com/software/budget-defender?ref_content=my-projects-tab&ref_feature=my_projects"],["Demo Vid Link", "https://youtu.be/I5dP9mbnx4M?t=5962"],["Github Link", "https://github.com/aryanp05/hackthenorth24"]],
+    technologies: ["Node.js", "AWS", "Svelte", "Plasma", "VoiceFlow", "Manifest"],
+  },{
+    id: 2,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
     img: p1,
@@ -194,7 +204,7 @@ export const projects = [
     technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
@@ -204,7 +214,7 @@ export const projects = [
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
-    id: 3,
+    id: 4,
     title: "AI Wildfire Path Predictor",
     des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
     img: p3,
@@ -214,7 +224,7 @@ export const projects = [
     technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Aryan Patel's Portfolio - Personal Website",
     des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
     img: p4,
@@ -224,7 +234,7 @@ export const projects = [
       technologies: ["React", "Next.js", "Tailwind"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Get Trash AI - 3rd @ Google SDC Hack With Ai",
     des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
     img: p5,
@@ -234,7 +244,7 @@ export const projects = [
       technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Resume Master (WIP)",
     des:        "A full stack application with a user-friendly interface for creating, styling, merging, and editing resumes with ease.",
     img: p6,
