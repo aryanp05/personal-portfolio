@@ -186,7 +186,7 @@ export const PROJECTS = [
 export const projects = [
   {
     id: 1,
-    title: "Dime Defender - Hack The North 2024 Winner",
+    title: "Dime Defender - Hack The North 2024 Winner🏅",
     des: "A chrome extension for Shopify/Amazon stores to control user spending by locking the PayNow button and simulating a courtroom between two AI lawyers debating whether you should purchase the product",
     img: p0,
     link: "https://youtu.be/I5dP9mbnx4M?t=5962",
