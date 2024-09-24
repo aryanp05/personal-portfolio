@@ -7,7 +7,7 @@ const Experience = () => {
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -75 }}
-        transition={{ duration: 1}}
+        transition={{ duration: 1 }}
         class="my-20 text-center text-5xl font-bold"
       >
         Experience
@@ -35,7 +35,15 @@ const Experience = () => {
                   {experience.company}
                 </span>
               </h6>
-              <p className="mb-4 text-neutral-400">{experience.description}</p>
+
+              <ul className="mb-4 text-neutral-400 list-disc pl-5">
+                {experience.description.map((point, index) => (
+                  <li key={index} className="mb-2">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
               {experience.technologies.map((tech, index) => (
                 <span
                   key={index}

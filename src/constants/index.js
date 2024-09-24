@@ -26,21 +26,6 @@ import projectf2 from "../assets/projects/project2f.png"
 import projectf3 from "../assets/projects/projectf3p2.png"
 import projectf4 from "../assets/projects/project4f.png"
 import projectf5 from "../assets/projects/project5f.png"
-import { RiReactjsLine, RiTailwindCssFill } from "react-icons/ri";
-import {
-  SiPython,
-  SiMicrosoftazure,
-  SiFlask,
-  SiC,
-  SiHtml5,
-  SiCss3,
-  SiGit,
-  SiJavascript,
-  SiTensorflow,
-  SiPytorch,
-  SiCplusplus,
-} from "react-icons/si";
-import { TbBrandNextjs, TbSql } from "react-icons/tb";
 
 export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Computer Science student @ The University of Waterloo & Business Administration Student @ Wilfrid Laurier University pursuing a career in software development, ML/AI, and finance."
 
@@ -55,35 +40,29 @@ export const EXPERIENCES = [
     year: "June 2024 - Present",
     role: "Software Engineer",
     company: "Hype Docs",
-    description: `Developed new product software features to address client requests and enhance core functionality, leading to the acquisition of new clients and improved overall user satisfaction and product capabilities. Refactored and optimized code to improve runtime by 25% and transitioned to Supabase to reduce query times by 48%.`,
+    description: ["Refactored backend code to optimize runtime and implemented asynchronous programming with bulk data requests on Firebase, improving code runtime by 25% and reducing query times by 48%", "Individually designed and implemented new product features based on client requests leveraging Node.js & Slack API", "Seamlessly developed code and thoroughly tested new product functionality with serverless functions using Netlify, easily integrating new features to main branches and deploying code"],
     technologies: ["JavaScript", "Slack API", "Bubble", "Supabase"],
-  },
-  {
-    year: "May 2024 - Present",
-    role: "Software Engineer",
-    company: "Accelerate with Azure",
-    description: `Engineered a full-stack financial investment AI advisor under the management of Microsoft and Microsoft Employees in an Azure development team. Used python and Azure AI Services to create a functional investment advisor AI model & chat bot backend, and react.js with tailwindcss for an attractive front end.`,
-    technologies: ["Python", "Azure", "Azure AI Services", "React.js", "Tailwind"],
   },
   {
     year: "May 2023 - Aug 2023",
     role: "Software & AI Engineer",
     company: "Incraftables",
-    description: `Implemented an ML algorithm to analyze user browsing behavior and transaction history, dynamically adjusting products shown on the homepage and suggesting products at checkout, resulting in an 18% increase in average order value. Collected user interaction data using JavaScript elements and vectorized products to better train AI, increasing the number of products browsed per session by 54%.`,
+    description: ["Implemented a DNN with TensorFlow to analyze user browsing behavior and transaction history to adjust products shown on the homepage and suggest add-ons at checkout, increasing average order value by 18%", "Created JavaScript elements to collect user data and vectorized products to encode elements such as price, popularity, and ratings to train the AI model, increasing the number of products browsed per session by 54%", "Preprocessed data using Python and efficiently stored it in SQL databases to create a robust training dataset"],
+    // description: `Implemented an ML algorithm to analyze user browsing behavior and transaction history, dynamically adjusting products shown on the homepage and suggesting products at checkout, resulting in an 18% increase in average order value. Collected user interaction data using JavaScript elements and vectorized products to better train AI, increasing the number of products browsed per session by 54%.`,
     technologies: ["Python", "JavaScript", "TensorFlow", "HTML", "SQL"],
   },
   {
     year: "Sept 2019 - June 2023",
     role: "Finance/Accounting Champion & President",
     company: "Ontario DECA",
-    description: `Placed 3rd in the world for Accounting, utilising python scripts to assist in accounting issue detection. Placed 1st in Canada for Finance Consulting on presentation about service transition to an online platform using technology to make financial models. President of prestigious 200+ member chapter, organising events with 1,800+ attendees.`,
+    description: ["Placed 3rd in the world for Accounting, utilising python scripts to assist in accounting issue detection.", "Placed 1st in Canada for Finance Consulting on presentation about service transition to an online platform using technology to make financial models.", "President of prestigious 200+ member chapter, organising events with 1,800+ attendees."],
     technologies: ["Python", "Excel", "VBA", "R"],
   },
   {
     year: "Sep 2020 - Nov 2021",
-    role: "Software Engineer & Founder",
+    role: "Founder",
     company: "Neonic Wraps",
-    description: `Designed and developed a fully functional e-commerce website with HTML, CSS, and Javascript. Managed inventory and performed queries using SQL and mongoDB. Achieved $10k+ in sales through utilising digital marketing channels.`,
+    description: ["Launched and ran my own Shopify-based ecommerce business, reaching $10k+ in sales.", "Designed and developed a fully functional website using HTML, CSS, and JavaScript.", "Managed all advertising and marketing campaigns, including partnerships with Instagram influencers.", "Handled all customer inquiries and operations, gaining hands-on experience in running a successful business."],
     technologies: ["HTML", "CSS", "JavaScript", "Sqlite", "MongoDB"],
   },
 ];
