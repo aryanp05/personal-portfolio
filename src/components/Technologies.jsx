@@ -11,8 +11,11 @@ import {
   SiTensorflow,
   SiPytorch,
   SiCplusplus,
+  SiNodedotjs,
+  SiAmazonaws, 
 } from "react-icons/si";
 import { TbBrandNextjs, TbSql } from "react-icons/tb";
+
 import { motion } from "framer-motion";
 
 const iconVar = (duration) => ({
@@ -52,7 +55,9 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
           )}
 
           {/* C */}
-          {skillName === "C" && <SiC className="text-4xl text-gray-600 hover:scale-110" />}
+          {skillName === "C" && (
+            <SiC className="text-4xl text-gray-600 hover:scale-110" />
+          )}
 
           {/* C++ */}
           {skillName === "C++" && (
@@ -60,7 +65,9 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
           )}
 
           {/* SQL */}
-          {skillName === "SQL" && <TbSql className="text-4xl text-green-500 hover:scale-110" />}
+          {skillName === "SQL" && (
+            <TbSql className="text-4xl text-green-500 hover:scale-110" />
+          )}
 
           {/* HTML */}
           {skillName === "HTML" && (
@@ -68,7 +75,9 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
           )}
 
           {/* CSS */}
-          {skillName === "CSS" && <SiCss3 className="text-4xl text-blue-600 hover:scale-110" />}
+          {skillName === "CSS" && (
+            <SiCss3 className="text-4xl text-blue-600 hover:scale-110" />
+          )}
 
           {/* JavaScript */}
           {skillName === "JavaScript" && (
@@ -105,8 +114,20 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
             <SiPytorch className="text-4xl text-blue-800 hover:scale-110" />
           )}
 
+          {/* AWS */}
+          {skillName === "AWS" && (
+            <SiAmazonaws className="text-4xl text-orange-400 hover:scale-110" />
+          )}
+
+          {/* Node JS */}
+          {skillName === "NodeJS" && (
+            <SiNodedotjs className="text-4xl text-green-600 hover:scale-110" />
+          )}
+
           {/* Git */}
-          {skillName === "Git" && <SiGit className="text-4xl text-red-400 hover:scale-110" />}
+          {skillName === "Git" && (
+            <SiGit className="text-4xl text-red-400 hover:scale-110" />
+          )}
 
           {/* Azure */}
           {skillName === "Azure" && (
@@ -120,7 +141,6 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
         </div>
       </div>
       <div className=" w-full mt-8">
-        
         <hr
           className="w-full border-t-8 lg:border-t-16 rounded border-neutral-300 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
           style={{ width: hrWidth }}
@@ -132,7 +152,7 @@ const SkillItem = ({ skillName, hrWidth, LR }) => {
 
 const Technologies = () => {
   return (
-    <div id="tech" className=" border-b border-neutral-800 pb-24 pt-2 mt-48">
+    <div id="tech" className=" border-b border-neutral-800 pb-24 pt-2 mt-48 ">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -75 }}
@@ -142,71 +162,260 @@ const Technologies = () => {
         Technologies
       </motion.h2>
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <motion.div initial={{y: 0}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
           <SiPython className="text-4xl text-blue-500 hover:scale-110 " />
         </motion.div>
-        <motion.div initial={{y: 2}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiC className="text-4xl text-gray-600 hover:scale-110" />
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          <SiNodedotjs className="text-4xl text-blue-500 hover:scale-110 " />
         </motion.div>
-        <motion.div initial={{y: -3}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiCplusplus className="text-4xl text-gray-700 hover:scale-110" />
+        <motion.div
+          initial={{ y: 2 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiC className="text-4xl text-gray-600 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 4}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <TbSql className="text-4xl text-green-500 hover:scale-110" />
+        <motion.div
+          initial={{ y: -3 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiCplusplus className="text-4xl text-gray-700 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: -1}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiHtml5 className="text-4xl text-red-600 hover:scale-110" />
+        <motion.div
+          initial={{ y: 4 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <TbSql className="text-4xl text-green-500 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: -5}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiCss3 className="text-4xl text-blue-600 hover:scale-110" />
+        <motion.div
+          initial={{ y: -1 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiHtml5 className="text-4xl text-red-600 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 4}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiJavascript className="text-4xl text-yellow-400 hover:scale-110" />
+        <motion.div
+          initial={{ y: -5 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiCss3 className="text-4xl text-blue-600 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 0}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <RiReactjsLine className="text-4xl text-cyan-400 hover:scale-110" />
+        <motion.div
+          initial={{ y: 4 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiJavascript className="text-4xl text-yellow-400 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 5}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <TbBrandNextjs className="text-4xl text-neutral-300 hover:scale-110" />
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <RiReactjsLine className="text-4xl text-cyan-400 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 2}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <RiTailwindCssFill className="text-4xl text-blue-400 hover:scale-110" />
+        <motion.div
+          initial={{ y: 5 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <TbBrandNextjs className="text-4xl text-neutral-300 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: -4}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiFlask className="text-4xl text-gray-500 hover:scale-110" />
+        <motion.div
+          initial={{ y: 2 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <RiTailwindCssFill className="text-4xl text-blue-400 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: -2}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiTensorflow className="text-4xl text-orange-600 hover:scale-110" />
+        <motion.div
+          initial={{ y: -4 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiFlask className="text-4xl text-gray-500 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 1}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiPytorch className="text-4xl text-blue-800 hover:scale-110" />
+        <motion.div
+          initial={{ y: -2 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiTensorflow className="text-4xl text-orange-600 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: -4}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiGit className="text-4xl text-red-400 hover:scale-110" />
+        <motion.div
+          initial={{ y: 1 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiPytorch className="text-4xl text-blue-800 hover:scale-110" />
         </motion.div>
-        <motion.div initial={{y: 3}} animate={{y: [-5, 5]}} transition={{ duration: 2, ease: "linear", repeat: Infinity, repeatType: "reverse"}}
-        className="rounded-2xl border-4 border-neutral-500 p-4">        <SiMicrosoftazure className="text-4xl text-blue-600 hover:scale-110" />
+        <motion.div
+          initial={{ y: -4 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiGit className="text-4xl text-red-400 hover:scale-110" />
         </motion.div>
-
-
-
+        <motion.div
+          initial={{ y: 3 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiMicrosoftazure className="text-4xl text-blue-600 hover:scale-110" />
+        </motion.div>
+        <motion.div
+          initial={{ y: 3 }}
+          animate={{ y: [-5, 5] }}
+          transition={{
+            duration: 2,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className="rounded-2xl border-4 border-neutral-500 p-4"
+        >
+          {" "}
+          <SiAmazonaws className="text-4xl text-blue-600 hover:scale-110" />
+        </motion.div>
       </div>
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 gap-x-20 lg:gap-x-40 w-4/5 lg:w-3/4 mx-auto mt-24">
-        <SkillItem skillName="Python" hrWidth="90%" LR={-150} />
-        <SkillItem skillName="C" hrWidth="85%" LR={150}/>
-        <SkillItem skillName="C++" hrWidth="80%" LR={-150}/>
-        <SkillItem skillName="SQL" hrWidth="90%" LR={150}/>
-        <SkillItem skillName="React" hrWidth="75%" LR={-150}/>
-        <SkillItem skillName="Next.js" hrWidth="70%" LR={150}/>
-        <SkillItem skillName="HTML" hrWidth="85%" LR={-150}/>
-        <SkillItem skillName="CSS" hrWidth="80%" LR={150}/>
-        <SkillItem skillName="JavaScript" hrWidth="80%" LR={-150}/>
-        <SkillItem skillName="Flask" hrWidth="85%" LR={150}/>
-        <SkillItem skillName="TensorFlow" hrWidth="75%" LR={-150}/>
-        <SkillItem skillName="PyTorch" hrWidth="75%" LR={150}/>
-        <SkillItem skillName="Git" hrWidth="90%" LR={-150}/>
-        <SkillItem skillName="Azure" hrWidth="85%" LR={150}/>
+        <SkillItem skillName="Python" hrWidth="95%" LR={-150} />
+        <SkillItem skillName="NodeJS" hrWidth="90%" LR={-150} />
+        <SkillItem skillName="C" hrWidth="85%" LR={150} />
+        <SkillItem skillName="C++" hrWidth="80%" LR={-150} />
+        <SkillItem skillName="SQL" hrWidth="90%" LR={150} />
+        <SkillItem skillName="React" hrWidth="80%" LR={-150} />
+        <SkillItem skillName="Next.js" hrWidth="70%" LR={150} />
+        <SkillItem skillName="HTML" hrWidth="85%" LR={-150} />
+        <SkillItem skillName="CSS" hrWidth="80%" LR={150} />
+        <SkillItem skillName="JavaScript" hrWidth="80%" LR={-150} />
+        <SkillItem skillName="Flask" hrWidth="85%" LR={150} />
+        <SkillItem skillName="TensorFlow" hrWidth="85%" LR={-150} />
+        <SkillItem skillName="PyTorch" hrWidth="75%" LR={150} />
+        <SkillItem skillName="Git" hrWidth="90%" LR={-150} />
+        <SkillItem skillName="Azure" hrWidth="85%" LR={150} />
+        <SkillItem skillName="AWS" hrWidth="85%" LR={150} />
       </div>
     </div>
   );
