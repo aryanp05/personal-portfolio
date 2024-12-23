@@ -2,6 +2,7 @@ import React from "react";
 import { HERO_CONTENT } from "../constants";
 import { HERO_CONTENT2 } from "../constants";
 import { HERO_CONTENT3 } from "../constants";
+import { HERO_CONTENT5 } from "../constants";
 import { HERO_CONTENT205 } from "../constants";
 import profilePic from "../assets/aryanProfile.jpg";
 import profilePic2 from "../assets/Aryan.jpg";
@@ -38,11 +39,12 @@ const Hero = () => {
             >
               Full Stack Developer
             </motion.span>
+            <div className="text-xl max-w-2xl">
             <motion.p
               variants={container(0.85)}
               initial="hidden"
               whileInView="visible"
-              className="my-2 max-w-xl py-6 pb-2 font-light tracking-tight text-center lg:text-left"
+              className="my-2 py-6 pb-2 font-light tracking-tight text-center lg:text-left"
             >
               {HERO_CONTENT}
             </motion.p>
@@ -50,23 +52,31 @@ const Hero = () => {
               variants={container(0.85)}
               initial="hidden"
               whileInView="visible"
-              className="my-2 max-w-xl py-6 pb-2 font-light tracking-tight text-center lg:text-left"
+              className="my-2 py-6 pb-2 font-light tracking-tight text-center lg:text-left"
+            >
+              {HERO_CONTENT5}
+            </motion.p>
+            <motion.p
+              variants={container(0.85)}
+              initial="hidden"
+              whileInView="visible"
+              className="my-2 py-6 pb-2 font-light tracking-tight text-center lg:text-left"
             >
               {HERO_CONTENT2}
             </motion.p>
-            <motion.p
+            {/* <motion.p
               variants={container(0.85)}
               initial="hidden"
               whileInView="visible"
               className="my-2 max-w-xl py-6  pb-2font-light tracking-tight text-center lg:text-left"
             >
               {HERO_CONTENT205}
-            </motion.p>
+            </motion.p> */}
             <motion.p
               variants={container(0.85)}
               initial="hidden"
               whileInView="visible"
-              className="my-2 max-w-xl pb-2 py-6 font-light tracking-tight text-center lg:text-left"
+              className="my-2 pb-2 py-6 font-light tracking-tight text-center lg:text-left"
             >
               {HERO_CONTENT3}{" "}
               <a href="https://www.linkedin.com/in/aryanpatel05/">
@@ -76,6 +86,8 @@ const Hero = () => {
                 </span>
               </a>
             </motion.p>
+            </div>
+            
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-8">

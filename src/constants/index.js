@@ -27,43 +27,50 @@ import projectf3 from "../assets/projects/projectf3p2.png"
 import projectf4 from "../assets/projects/project4f.png"
 import projectf5 from "../assets/projects/project5f.png"
 
-export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Computer Science student @ The University of Waterloo & Business Administration Student @ Wilfrid Laurier University pursuing a career in software development, ML/AI, and finance."
+export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Computer Science & Business Administration student @ The University of Waterloo."
+export const HERO_CONTENT5 = "Previously, I've interned as a software engineer at HypeDocs & Incraftabeles, and am an incoming software engineer at LeapAP"
 
 export const HERO_CONTENT2 = "💻 I’m proficient in full-stack development, leverage Next.js/React.js with TailwindCSS for front end, Python, C, and C++ for back-end applications, TensorFlow and Pytorch for machine learning, MongoDB and SQLite for database management, and Azure for cloud hosting!"
 export const HERO_CONTENT205 = "☁️ I am certified in Azure Cloud Fundamentals (AZ900) and Azure AI Fundamentals (AI900), and love to work with cloud based technologies."
 export const HERO_CONTENT3 = "I am looking for Winter 2025 internships."
+
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
 
 
 export const EXPERIENCES = [
   {
-    year: "June 2024 - Present",
-    role: "Software Engineer",
+    year: "Jan. 2025 - Apr. 2025",
+    role: "Software Engineer Intern",
+    company: "Leap AP",
+    description: ["Incoming Software Engineer Intern"],
+    technologies: [""],
+  },
+  {
+    year: "May 2024 - Aug. 2024",
+    role: "Software Engineer Intern",
     company: "Hype Docs",
-    description: ["Refactored backend code to optimize runtime and implemented asynchronous programming with bulk data requests on Firebase, improving code runtime by 25% and reducing query times by 48%", "Individually designed and implemented new product features based on client requests leveraging Node.js & Slack API", "Seamlessly developed code and thoroughly tested new product functionality with serverless functions using Netlify, easily integrating new features to main branches and deploying code"],
-    technologies: ["JavaScript", "Slack API", "Bubble", "Supabase"],
+    description: ["Refactored backend code to optimize runtime efficiency and implemented asynchronous programming with bulk data requests on Firebase for fast API calls, improving code runtime by 25% and reducing query times by 48%", 
+                  "Individually designed and implemented new product features based on client requests leveraging Node.js & Slack API",
+                  "Seamlessly developed code and thoroughly tested new product functionality with serverless functions using Netlify, easily integrating new features to main branches and deploying code, greatly decreasing ship to production times"],
+    technologies: ["Node.JS", "FireBase", "Slack API", "Bubble"],
   },
   {
     year: "May 2023 - Aug 2023",
-    role: "Software & AI Engineer",
+    role: "Software & AI Engineer Intern",
     company: "Incraftables",
-    description: ["Implemented a DNN with TensorFlow to analyze user browsing behavior and transaction history to adjust products shown on the homepage and suggest add-ons at checkout, increasing average order value by 18%", "Created JavaScript elements to collect user data and vectorized products to encode elements such as price, popularity, and ratings to train the AI model, increasing the number of products browsed per session by 54%", "Preprocessed data using Python and efficiently stored it in SQL databases to create a robust training dataset"],
-    // description: `Implemented an ML algorithm to analyze user browsing behavior and transaction history, dynamically adjusting products shown on the homepage and suggesting products at checkout, resulting in an 18% increase in average order value. Collected user interaction data using JavaScript elements and vectorized products to better train AI, increasing the number of products browsed per session by 54%.`,
+    description: ["Researched and implemented a DNN with TensorFlow to analyze user browsing behavior and transaction history to adjust products shown on the homepage and suggest add-ons at checkout, increasing average order value by 18%",
+                  "Created JavaScript elements to collect user interaction data and vectorized products to encode elements such as price, popularity, and ratings to train the AI model, increasing the number of products browsed per session by 54%",
+                  "Preprocessed data using Python and efficiently stored it in SQL databases to create a robust training dataset"],
     technologies: ["Python", "JavaScript", "TensorFlow", "HTML", "SQL"],
   },
   {
-    year: "Sept 2019 - June 2023",
-    role: "Finance/Accounting Champion & President",
-    company: "Ontario DECA",
-    description: ["Placed 3rd in the world for Accounting, utilising python scripts to assist in accounting issue detection.", "Placed 1st in Canada for Finance Consulting on presentation about service transition to an online platform using technology to make financial models.", "President of prestigious 200+ member chapter, organising events with 1,800+ attendees."],
-    technologies: ["Python", "Excel", "VBA", "R"],
-  },
-  {
-    year: "Sep 2020 - Nov 2021",
+    year: "Sep. 2020 - Nov. 2021",
     role: "Founder",
     company: "Neonic Wraps",
-    description: ["Launched and ran my own Shopify-based ecommerce business, reaching $10k+ in sales.", "Designed and developed a fully functional website using HTML, CSS, and JavaScript.", "Managed all advertising and marketing campaigns, including partnerships with Instagram influencers.", "Handled all customer inquiries and operations, gaining hands-on experience in running a successful business."],
-    technologies: ["HTML", "CSS", "JavaScript", "Sqlite", "MongoDB"],
+    description: ["Designed a full-stack website with HTML and managed online MongoDB inventory while perfoming database queries using SQL",
+                  "Launched and operated a Shopify e-commerce business selling a diverse range of tech products, achieving $10k+ in sales.",
+                  "Managed advertising campaigns through digital marketing channels, including influencer partnership promotion, to drive sales"],
+    technologies: ["Entrepreneurship", "HTML", "CSS", "JavaScript", "Sqlite", "MongoDB"],
   },
 ];
 
