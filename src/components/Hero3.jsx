@@ -20,7 +20,7 @@ const container = (delay) => ({
 
 const Hero = () => {
   return (
-    <div id="hero" className="border-b border-neutral-900 pt-0 pb-8 mt-12">
+    <div id="hero" className="border-b border-neutral-900 pb-8 mt-24">
       <div className="flex flex-wrap">
         {/* Left Side */}
         <div className="w-full lg:w-1/2">
@@ -55,7 +55,7 @@ const Hero = () => {
                 whileInView="visible"
                 className="mt-0 w-4/5 my-2 py-6 pb-0 font-light tracking-tight text-center lg:text-left"
               >
-               💻 I’m proficient in full-stack development, leverage React/Next with TailwindCSS for front end, Python, C, & C++ for back-end applications, TensorFlow and Pytorch for ML/AI, MongoDB & SQLite for data management, and Azure/AWS for cloud hosting!
+               💻 I’m proficient in full-stack development, leverage Next.js/React.js with TailwindCSS for front end, Python, C, and C++ for back-end applications, TensorFlow and Pytorch for machine learning, MongoDB and SQLite for database management, and Azure for cloud hosting!
               </motion.p>
 
             {/* Profile Picture */}
@@ -81,7 +81,7 @@ const Hero = () => {
             variants={container(1)}
             initial="hidden"
             whileInView="visible"
-            className="text-3xl font-bold mb-6 text-center lg:text-left"
+            className="flex flex-wrap justify-center text-3xl font-bold mb-6 text-center lg:text-left"
           >
             Education
           </motion.h2>
@@ -122,7 +122,7 @@ const Hero = () => {
             variants={container(1.75)}
             initial="hidden"
             whileInView="visible"
-            className="text-3xl font-bold mt-12 mb-6 text-center lg:text-left"
+            className="flex flex-wrap justify-center text-3xl font-bold mt-12 mb-6 text-center lg:text-left"
           >
             Internships
           </motion.h2>
@@ -176,13 +176,13 @@ const Hero = () => {
         </div>
 
         {/* Projects Section */}
-        <div className="flex w-full items-center justify-center ">
+        <div className="flex w-full items-center justify-center lg:mt-16">
           <AnchorLink className="anchor-link" offset={50} href="#recentProjects">
             <motion.div
-              variants={container(8)}
+              variants={container(3)}
               initial="hidden"
               whileInView="visible"
-              className="text-2xl px-1 pt-0 py-5 mb-12 lg:mb-20 cursor-pointer"
+              className="text-2xl px-1 py-5 mb-12 lg:mb-20 cursor-pointer"
             >
               <h2 className="inline-block border border-2 border-white rounded uppercase text-white py-2 px-4 lg:px-12 font-medium hover:bg-gradient-to-r hover:from-yellow-400 hover:via-pink-500 hover:to-purple-500 bg-clip-text text-lg lg:text-2xl tracking-tight hover:text-transparent hover:border-gray-400 transition duration-500 ease-in-out">
                 🛠 Projects 🛠

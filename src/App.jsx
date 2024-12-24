@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Hero2 from "./components/Hero2"
+import Hero3 from "./components/Hero3"
 import About from './components/About'
 import Technologies from './components/Technologies'
 import Experience from './components/Experience'
@@ -21,7 +23,9 @@ const App = () => {
       <div className="container mx-auto lg:px-8 mr-2 ml-2 lg:ml-16 lg:mr-16">
       <Navbar />
       <Home />
-      <Hero/>
+      {/* <Hero /> */}
+      <Hero2/>
+      {/* <Hero3 /> */}
       <RecentProjects />
       <Experience />
       <Education />

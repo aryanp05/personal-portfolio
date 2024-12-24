@@ -27,8 +27,8 @@ import projectf3 from "../assets/projects/projectf3p2.png"
 import projectf4 from "../assets/projects/project4f.png"
 import projectf5 from "../assets/projects/project5f.png"
 
-export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Computer Science & Business Administration student @ The University of Waterloo."
-export const HERO_CONTENT5 = "Previously, I've interned as a software engineer at HypeDocs & Incraftabeles, and am an incoming software engineer at LeapAP"
+export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Software Engineer with a passion for Finance and Trading. Currently, I'm studying Computer Science & Business Adminsitration at The University of Waterloo "
+export const HERO_CONTENT5 = "I'm an incoming software engineer at LeapAP, and have previously interned at HypeDocs and Incraftables"
 
 export const HERO_CONTENT2 = "💻 I’m proficient in full-stack development, leverage Next.js/React.js with TailwindCSS for front end, Python, C, and C++ for back-end applications, TensorFlow and Pytorch for machine learning, MongoDB and SQLite for database management, and Azure for cloud hosting!"
 export const HERO_CONTENT205 = "☁️ I am certified in Azure Cloud Fundamentals (AZ900) and Azure AI Fundamentals (AI900), and love to work with cloud based technologies."
@@ -74,102 +74,9 @@ export const EXPERIENCES = [
   },
 ];
 
-export const PROJECTF = [
-  {
-    title: "BDO Future Leaders Challenge Case Competition Winner (1st Place)",
-    image: projectf1,
-    description:
-      "Placed first out of 1,500+ competitors on our presentation to help the Canadian Agriculture industry take advantage of new 2024 technology approvals and government financial aid programs to reach ESG goals in a financially feasible and profitable way",
-      links: [["Article", "https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/news/2024/april/first-year-future-leaders-challenge-showcases-innovation.html"],["LinkedIn", "https://www.linkedin.com/feed/update/urn:li:activity:7191194573660909569/"]],
-      technologies: [],
-  },
-  {
-    title: "UW Management Consulting Case Competition Winner (1st Place)",
-    image: projectf2,
-    description:
-      "Placed first out of 400+ competitors on our presentation for DBS Financial Bank to grow by creating a new financial investing platform intergrated with a thematic stock portfolio generatng AI technology, StashAway.",
-      links: [["LinkedIn", "https://www.linkedin.com/feed/update/urn:li:activity:7172986641563676675/"]],
-      technologies: [],
-  },
-  {
-    title: "Wealth Harbour",
-    image: projectf3,
-    description:
-      "An advanced portfolio management with features including user authentication, stock selection, mean-variance optimization, HRP, and interactive visualizations using Plotly and Streamlit.",
-      links: [["Github", "https://github.com/aryanp05/Wealth-Harbour"]],
-      technologies: ["Python", "Numpy"],
-  },
-  {
-    title: "3rd in the World for Accounting at DECA ICDC",
-    image: projectf4,
-    description:
-      "Ranked 3rd in the world for Accounting in the DECA International Competition from 80,000+ global competitors, demonstrating highly proficient analytical thinking, numeracy skills, and decision-making.",
-      links: [],
-      technologies: ["Python", "VBA", "Excel"],
-  },
-  {
-    title: "1st in Canada for Financial Consulting at DECA",
-    image: projectf5,
-    description:
-      "Placed 1st in Canada for Financial Consulting, receiving a record-breaking 100% on my presentation for financial bank service transitions to online platforms, exhibiting exceptional financial literacy.",
-      links: [],
-      technologies: ["Excel", "R", "PowerPoint"],
-  },
-];
-
-export const PROJECTS = [
-  {
-    title: "Meerkat ASL Sign Language Reader",
-    image: project1,
-    description:
-      "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
-      links: [["Demo Vid", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Github", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
-      technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
-  },
-  {
-    title: "Mock Investor",
-    image: project2,
-    description:
-      "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
-      links: [["Website", "https://mockinvest.azurewebsites.net"],["Github", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
-      technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python", "Bootstrap"],
-  },
-  {
-    title: "AI Wildfire Path Predictor",
-    image: project3,
-    description:
-      "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
-      links: [["Github", "https://github.com/aryanp05/Wildfire-AI-Hackathon"]],
-      technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
-  },
-  {
-    title: "Aryan Patel's Portfolio",
-    image: project4,
-    description:
-      "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
-      links: [["Github", "https://github.com/aryanp05/personal-portfolio"]],
-      technologies: ["React", "Next.js", "Tailwind"],
-  },
-  {
-    title: "Resume Master (WIP)",
-    image: project5,
-    description:
-      "A full stack application with a user-friendly interface for creating, styling, merging, and editing resumes with ease.",
-      links: [["Website", "https://resumemaster.azurewebsites.net/"], ["Github", "https://github.com/aryanp05/resumemaster"]],
-      technologies: ["Flask", "Python", "JavaScript", "HTML", "CSS", "SQL"],
-  },
-  {
-    title: "Get Trash AI",
-    image: project6,
-    description:
-      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
-      links: [["Devpost", "https://devpost.com/software/gettrash"], ["Github", "https://github.com/aryanp05/GetTrash-Hack-With-AI-"]],
-      technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
-  },
-];
 
 ////
-export const projects = [
+export const PROJECTS = [
   {
     id: 1,
     title: "Dime Defender - Hack The North 2024 Winner🏅",
@@ -229,19 +136,9 @@ export const projects = [
     links: [["Devpost Link", "https://devpost.com/software/gettrash"], ["Github Link", "https://github.com/aryanp05/GetTrash-Hack-With-AI-"]],
       technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
   },
-  {
-    id: 7,
-    title: "Resume Master (WIP)",
-    des:        "A full stack application with a user-friendly interface for creating, styling, merging, and editing resumes with ease.",
-    img: p6,
-    link: "https://resumemaster.azurewebsites.net/",
-    linkName: "View Website In Progress",
-    links: [["Website Link", "https://resumemaster.azurewebsites.net/"], ["Github Link", "https://github.com/aryanp05/resumemaster"]],
-      technologies: ["Flask", "Python", "JavaScript", "HTML", "CSS", "SQL"],
-  },
 ];
 
-export const projectsF = [
+export const PROJECTF = [
   {
     id: 1,
     title: "1st Place @ BDO Future Leaders Case Competition",
@@ -307,3 +204,127 @@ export const CONTACT = {
   phoneNo: "+12 4555 666 00 ",
   email: "me@example.com",
 };
+
+
+export const projects = [
+  {
+    id: 1,
+    title: "Dime Defender - Hack The North 2024 Winner🏅",
+    des: "A chrome extension for Shopify/Amazon stores to control user spending by locking the PayNow button and simulating a courtroom between two AI lawyers debating whether you should purchase the product",
+    img: p0,
+    link: "https://youtu.be/I5dP9mbnx4M?t=5962",
+    linkName: "View Demo Video",
+    links: [["Devpost Link", "https://devpost.com/software/budget-defender?ref_content=my-projects-tab&ref_feature=my_projects"],["Demo Vid Link", "https://youtu.be/I5dP9mbnx4M?t=5962"],["Github Link", "https://github.com/aryanp05/hackthenorth24"]],
+    technologies: ["Node.js", "AWS", "Svelte", "Plasma", "VoiceFlow", "Manifest"],
+  },{
+    id: 2,
+    title: "Meerkat ASL Sign Language Reader",
+    des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
+    img: p1,
+    link: "https://www.youtube.com/watch?v=yPALn5ZH8LA",
+    linkName: "View Demo Video",
+    links: [["Demo Vid Link", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Github Link", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
+    technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
+  },
+  {
+    id: 3,
+    title: "Mock Investor - Paper Portfolio Website",
+    des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
+    img: p2,
+    link: "https://mockinvest.azurewebsites.net",
+    linkName: "View Live Website",
+    links: [["Website Link", "https://mockinvest.azurewebsites.net"],["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
+    technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
+  },
+  {
+    id: 4,
+    title: "AI Wildfire Path Predictor",
+    des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
+    img: p3,
+    link: "https://github.com/aryanp05/Wildfire-AI-Hackathon",
+    linkName: "View Github Repo",
+    links: [["Github Link", "https://github.com/aryanp05/Wildfire-AI-Hackathon"]],
+    technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
+  },
+  {
+    id: 5,
+    title: "Aryan Patel's Portfolio - Personal Website",
+    des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
+    img: p4,
+    link: "https://github.com/aryanp05/personal-portfolio",
+    linkName: "View Github Repo",
+    links: [["Github Link", "https://github.com/aryanp05/personal-portfolio"]],
+      technologies: ["React", "Next.js", "Tailwind"],
+  },
+  {
+    id: 6,
+    title: "Get Trash AI - 3rd @ Google SDC Hack With Ai",
+    des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
+    img: p5,
+    link: "https://devpost.com/software/gettrash",
+    linkName: "View Devpost",
+    links: [["Devpost Link", "https://devpost.com/software/gettrash"], ["Github Link", "https://github.com/aryanp05/GetTrash-Hack-With-AI-"]],
+      technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
+  },
+];
+
+export const projectsF = [
+  {
+    id: 1,
+    title: "1st Place @ BDO Future Leaders Case Competition",
+    des: "Placed first out of 1,500+ competitors on our presentation to help the Canadian Agriculture industry take advantage of new 2024 technology approvals and government financial aid programs to reach ESG goals in a financially feasible and profitable way",
+    img: p1f,
+    link: "https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/news/2024/april/first-year-future-leaders-challenge-showcases-innovation.html",
+    linkName: "View University Article",
+    links: [["Article Link", "https://www.wlu.ca/academics/faculties/lazaridis-school-of-business-and-economics/news/2024/april/first-year-future-leaders-challenge-showcases-innovation.html"],["LinkedIn Link", "https://www.linkedin.com/feed/update/urn:li:activity:7191194573660909569/"]],
+      technologies: [],
+  },
+  {
+    id: 2,
+    title: "1st Place @ UW Management Consulting Case Competition",
+    des:       "Placed first out of 400+ competitors on our presentation for DBS Financial Bank to grow by creating a new financial investing platform intergrated with a thematic stock portfolio generatng AI technology, StashAway.",
+    img: p2f,
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7172986641563676675/",
+    linkName: "View LinkedIn Post",
+    links: [["LinkedIn", "https://www.linkedin.com/feed/update/urn:li:activity:7172986641563676675/"]],
+      technologies: [],
+  },
+  {
+    id: 3,
+    title: "Mock Investor - Paper Portfolio Website",
+    des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
+    img: p2,
+    link: "https://mockinvest.azurewebsites.net",
+    linkName: "View Live Website",
+    links: [["Website Link", "https://mockinvest.azurewebsites.net"],["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
+    technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
+  },
+  {
+    id: 4,
+    title: "Wealth Harbour - Portfolio Optimization Tool",
+    des:      "An advanced portfolio management with features including user authentication, stock selection, mean-variance optimization, HRP, and interactive visualizations using Plotly and Streamlit.",
+    img: p4f,
+    link: "https://github.com/aryanp05/Wealth-Harbour",
+    linkName: "View Github Repo",
+    links: [["Github", "https://github.com/aryanp05/Wealth-Harbour"]],
+    technologies: ["Python", "Numpy"],
+  },
+  {
+    id: 5,
+    title: "3rd in the World for Accounting at DECA ICDC",
+    des:       "Ranked 3rd in the world for Accounting in the DECA International Competition from 80,000+ global competitors, demonstrating highly proficient analytical thinking, numeracy skills, and decision-making.",
+    img: p5f,
+    link: "",
+    links: [],
+      technologies: ["Python", "VBA", "Excel"],
+  },
+  {
+    id: 6,
+    title: "1st in Canada for Financial Consulting at DECA",
+    des:       "Placed 1st in Canada for Financial Consulting, receiving a record-breaking 100% on my presentation for financial bank service transitions to online platforms, exhibiting exceptional financial literacy.",
+    img: p6f,
+    link: "",
+    links: [],
+    technologies: ["Excel", "R", "PowerPoint"],
+  },
+];

@@ -103,7 +103,7 @@ const Hero = () => {
           </div>
         </div>
         <div className=" flex w-full items-center justify-center lg:mt-16">
-          <AnchorLink className="anchor-link" offset={50} href="#recentProjects">
+          <AnchorLink className="anchor-link" offset={-150} href="#recentProjects">
             <motion.div
               variants={container(3)}
               initial="hidden"

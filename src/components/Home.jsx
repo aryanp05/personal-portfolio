@@ -42,12 +42,12 @@ const Home = () => {
 Developer | Entrepreneur | Innovator
         </motion.span>
         <AnchorLink
-        className="anchor-link" offset={50} href="#hero">
+        className="anchor-link" offset={0} href="#hero">
         <motion.div 
         variants={container(4)}
         initial="hidden"
         animate="visible"
-        className=" text-2xl px-1 py-5 my-8 mb-96 cursor-pointer ">
+        className=" text-2xl px-1 py-5 pb-0 my-8 mb-96 cursor-pointer ">
           <h2 className="inline-block border border-2 border-white rounded upercase text-white py-2 px-4 lg:px-12 font-medium hover:bg-gradient-to-r hover:from-yellow-400 hover:via-pink-500 hover:to-purple-500 bg-clip-text text-lg lg:text-2xl tracking-tight hover:text-transparent hover:border-gray-400 transition duration-500 ease-in-out">
             Learn About Me 
           </h2>
