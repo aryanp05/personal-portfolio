@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { TypewriterEffectSmooth } from "./ui/typerwriter-effect";
+import { TypewriterEffect } from "./ui/typerwriter-effect";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-
 
 const container = (delay) => ({
     hidden: { x: -100, opacity: 0 },
@@ -12,21 +13,33 @@ const container = (delay) => ({
     },
   });
   
+  
 
 const Home = () => {
+
+  const words = [
+    {
+      text: "Hello, World.",
+    },
+  ];
+  const intro = [
+    {
+      text: "I'm Aryan Patel"
+    }
+  ];
   return (
     <div id="home" className="border-b border-neutral-900 pt-32 ">
       <div className="flex flex-col items-center ">
-        <motion.h2
-          variants={container(0)}
-          initial="hidden"
-          animate="visible"
+        <h2
+          // variants={container(0)}
+          // initial="hidden"
+          // animate="visible"
           className="text-3xl font-bold mt-12"
         >
-          Hello, World.
-        </motion.h2>
+          <TypewriterEffect words={words} />
+        </h2>
         <motion.h1
-          variants={container(1.5)}
+          variants={container(2)}
           initial="hidden"
           animate="visible"
           className="pb-8 lg:pb-12 text-center text-7xl lg:text-8xl font-thin tracking-tught mt-4 lg:mt-2 lg:text-14xl"
