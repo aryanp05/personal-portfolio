@@ -47,7 +47,7 @@ export const EXPERIENCES = [
     description: ["Developed secure software to facilities large-scale, vendor financial transactions and accounts payable automation within an Agile based team using Node.js and Express for 30+ property management companies in Canada and the United States",
                   "Monitored and maintained system infrastructure along with production software integrity using GitLab, Grafana, and Gray Logs, troubleshooting, debugging and resolving integration failure to ensure minimal downtime and maximum user efficiencies",
                   "Individually designed, implemented, tested, and monitored new software across local, development, and production environments"],
-    technologies: [""],
+    technologies: ["Node.JS", "Express", "GitLab", "Grafana", "Gray Logs"],
   },
   {
     year: "May 2024 - Aug. 2024",
