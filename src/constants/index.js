@@ -4,9 +4,10 @@ import p0 from "../assets/projects/p0.jpg";
 import p1 from "../assets/projects/p1.png";
 import p2 from "../assets/projects/p2.png";
 import p3 from "../assets/projects/p3.png";
-import p4 from "../assets/projects/p4.png";
+import p4 from "../assets/projects/portfolio.png";
 import p5 from "../assets/projects/p5.png";
 import p6 from "../assets/projects/p6.png";
+import p7 from "../assets/projects/studysync.jpeg";
 import c from "../assets/c.png"
 
 
@@ -227,7 +228,8 @@ export const projects = [
     linkName: "Play Game!",
     links: [["Game Link", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Game Link(Waterloo Edition)", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
     technologies: ["C++", "Object Orientated Programming"],
-  },{
+  },
+  {
     id: 3,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
@@ -239,6 +241,16 @@ export const projects = [
   },
   {
     id: 4,
+    title: "StudySync - AI Collaborative Study Platform",
+    des: "StudySync turns group studying into collaborative competition. Earn points for staying focused & get docked for distractions like phone use with quizzes & personalized plans for locking in.",
+    img: p7,
+    link: "https://devpost.com/software/studysync-7awz28",
+    linkName: "View Devpost",
+    links: [["Devpost Link", "https://devpost.com/software/studysync-7awz28"]],
+    technologies: ["WebSockets", "Node.JS", "Open-CV", "Hugging Face", "FastAPI"],
+  },
+  {
+    id: 5,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
@@ -248,7 +260,7 @@ export const projects = [
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
-    id: 5,
+    id: 6,
     title: "AI Wildfire Path Predictor",
     des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
     img: p3,
@@ -258,14 +270,24 @@ export const projects = [
     technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
   },
   {
-    id: 6,
-    title: "Get Trash AI - 3rd @ Google SDC Hack With Ai",
+    id: 7,
+    title: "Get Trash AI - 3rd @ Google Hack With Ai 🥉",
     des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
     img: p5,
     link: "https://devpost.com/software/gettrash",
     linkName: "View Devpost",
     links: [["Devpost Link", "https://devpost.com/software/gettrash"], ["Github Link", "https://github.com/aryanp05/GetTrash-Hack-With-AI-"]],
       technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
+  },
+  {
+    id: 8,
+    title: "Aryan Patel's Portfolio - Personal Website",
+    des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
+    img: p4,
+    link: "https://github.com/aryanp05/personal-portfolio",
+    linkName: "View Github Repo",
+    links: [["Github Link", "https://github.com/aryanp05/personal-portfolio"]],
+      technologies: ["React", "Next.js", "Tailwind"],
   },
 ];
 
