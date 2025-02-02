@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import { projects } from "../constants";
 import { projectsF } from "../constants";
@@ -158,6 +159,7 @@ const RecentProjects = () => {
           </motion.div>
         ))}
       </div>
+      <AnchorLink className="anchor-link" offset={50} href="#recentProjects">
       <div className="flex justify-center mt-24 mb-16">
         <div className="flex items-center">
           <span
@@ -196,6 +198,7 @@ const RecentProjects = () => {
           </span>
         </div>
       </div>
+      </AnchorLink>
     </div>
   );
 };
