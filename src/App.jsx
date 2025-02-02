@@ -12,6 +12,8 @@ import Education from './components/Education'
 import Credentials from './components/Credentials'
 import Endbar from './components/Endbar'
 import RecentProjects from './components/RecentProjects'
+import { ExpandableCardDemo } from './components/Skills'
+import ProjectGallery from './components/ProjectGallery'
 const App = () => {
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
@@ -23,10 +25,9 @@ const App = () => {
       <div className="container mx-auto lg:px-8 mr-2 ml-2 lg:ml-16 lg:mr-16">
       <Navbar />
       <Home />
-      {/* <Hero /> */}
       <Hero2/>
-      {/* <Hero3 /> */}
       <RecentProjects />
+      {/* <ProjectGallery /> */}
       <Experience />
       <Education />
       <Technologies />

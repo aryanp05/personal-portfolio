@@ -7,6 +7,7 @@ import p3 from "../assets/projects/p3.png";
 import p4 from "../assets/projects/p4.png";
 import p5 from "../assets/projects/p5.png";
 import p6 from "../assets/projects/p6.png";
+import c from "../assets/c.png"
 
 
 import p1f from "../assets/projects/pf1.jpg";
@@ -90,7 +91,7 @@ export const PROJECTS = [
     id: 2,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
-    img: p1,
+    img: c,
     link: "https://www.youtube.com/watch?v=yPALn5ZH8LA",
     linkName: "View Demo Video",
     links: [["Demo Vid Link", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Github Link", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
@@ -216,8 +217,18 @@ export const projects = [
     linkName: "View Demo Video",
     links: [["Devpost Link", "https://devpost.com/software/budget-defender?ref_content=my-projects-tab&ref_feature=my_projects"],["Demo Vid Link", "https://youtu.be/I5dP9mbnx4M?t=5962"],["Github Link", "https://github.com/aryanp05/hackthenorth24"]],
     technologies: ["Node.js", "AWS", "Svelte", "Plasma", "VoiceFlow", "Manifest"],
-  },{
+  },
+  {
     id: 2,
+    title: "CATAN: C++ OOP Board Game",
+    des: "The original Settlers of Catan board game made into a virtual experience, coded in C++ with a focus on abstraction, encapsulation, inheritence, and polymorphism, with low coupling and high cohesion",
+    img: c,
+    link: "https://www.youtube.com/watch?v=yPALn5ZH8LA",
+    linkName: "Play Game!",
+    links: [["Game Link", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Game Link(Waterloo Edition)", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
+    technologies: ["C++", "Object Orientated Programming"],
+  },{
+    id: 3,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
     img: p1,
@@ -227,7 +238,7 @@ export const projects = [
     technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
@@ -237,7 +248,7 @@ export const projects = [
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
-    id: 4,
+    id: 5,
     title: "AI Wildfire Path Predictor",
     des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
     img: p3,
@@ -245,16 +256,6 @@ export const projects = [
     linkName: "View Github Repo",
     links: [["Github Link", "https://github.com/aryanp05/Wildfire-AI-Hackathon"]],
     technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
-  },
-  {
-    id: 5,
-    title: "Aryan Patel's Portfolio - Personal Website",
-    des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
-    img: p4,
-    link: "https://github.com/aryanp05/personal-portfolio",
-    linkName: "View Github Repo",
-    links: [["Github Link", "https://github.com/aryanp05/personal-portfolio"]],
-      technologies: ["React", "Next.js", "Tailwind"],
   },
   {
     id: 6,
