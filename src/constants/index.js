@@ -29,6 +29,8 @@ import projectf3 from "../assets/projects/projectf3p2.png"
 import projectf4 from "../assets/projects/project4f.png"
 import projectf5 from "../assets/projects/project5f.png"
 
+
+
 export const HERO_CONTENT = "👋 Hello, I’m Aryan Patel, a Software Engineer with a passion for Finance and Trading. Currently, I'm studying Computer Science & Business Adminsitration at The University of Waterloo "
 export const HERO_CONTENT5 = "I'm an incoming software engineer at LeapAP, and have previously interned at HypeDocs and Incraftables"
 
@@ -40,6 +42,13 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 
 export const EXPERIENCES = [
+  {
+    year: "May 2025 - Aug. 2025",
+    role: "Incoming Software Engineer Intern",
+    company: "Shopify",
+    description: [],
+    technologies: [],
+  },
   {
     year: "Jan. 2025 - Apr. 2025",
     role: "Software Engineer Intern",

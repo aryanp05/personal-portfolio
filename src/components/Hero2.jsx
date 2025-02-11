@@ -3,11 +3,41 @@ import { HERO_CONTENT, HERO_CONTENT2, HERO_CONTENT3, HERO_CONTENT5 } from "../co
 import profilePic2 from "../assets/Aryan.jpg";
 import waterlooLogo from "../assets/waterloo.png";
 import laurierLogo from "../assets/laurier.png";
-import company1Logo from "../assets/leapAP.jpeg";
+import company4Logo from "../assets/shopify.png";
+import company3Logo from "../assets/leapAP.jpeg";
 import company2Logo from "../assets/hypedocs.jpeg";
-import company3Logo from "../assets/incraftables.png";
+import company1Logo from "../assets/incraftables.png";
 import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+
+
+
+const internships = [
+  {
+    logo: company4Logo,
+    company: "Shopify",
+    role: "Incoming Engineer Intern",
+    duration: "May 2025 - Aug 2025",
+  },
+  {
+    logo: company3Logo,
+    company: "LeapAP",
+    role: "Software Engineer Intern",
+    duration: "Jan 2025 - Apr 2025",
+  },
+  {
+    logo: company2Logo,
+    company: "HypeDocs",
+    role: "Software Engineer Intern",
+    duration: "May 2024 - Aug 2024",
+  },
+  {
+    logo: company1Logo,
+    company: "InCraftables",
+    role: "Software Engineer Intern",
+    duration: "May 2023 - Aug 2023",
+  },
+];
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -127,52 +157,26 @@ const Hero = () => {
             Internships
           </motion.h2>
 
-          <div className="flex flex-wrap justify-center gap-12">
-            {/* Internship 1 */}
-            <motion.div
-              variants={container(2)}
-              initial="hidden"
-              whileInView="visible"
-              className="flex flex-col items-center"
-            >
-              <div className="rounded-full overflow-hidden w-24 h-24 lg:w-32 lg:h-32 mb-4 hover:scale-110">
-                <img src={company1Logo} alt="LeapAP" className="w-full h-full object-cover" />
-              </div>
-              <p className="text-lg lg:text-xl font-bold">LeapAP</p>
-              <p className="text-sm font-light">Software Engineer Intern</p>
-              <p className="text-sm font-light">Jan 2024 - Apr 2024</p>
-            </motion.div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+  {internships.map((internship, index) => (
+    <motion.div
+      key={index}
+      variants={container(2 + index * 0.25)}
+      initial="hidden"
+      whileInView="visible"
+      className="flex flex-col items-center text-center"
+    >
+      <div className="rounded-full overflow-hidden w-28 h-28 lg:w-32 lg:h-32 mb-4 hover:scale-110 transition-transform">
+        <img src={internship.logo} alt={internship.company} className="w-full h-full object-cover" />
+      </div>
+      <p className="text-lg lg:text-xl font-bold">{internship.company}</p>
+      <p className="text-sm font-light whitespace-nowrap max-w-[180px]">{internship.role}</p>
+      <p className="text-xs font-light">{internship.duration}</p>
+    </motion.div>
+  ))}
+</div>
 
-            {/* Internship 2 */}
-            <motion.div
-              variants={container(2.25)}
-              initial="hidden"
-              whileInView="visible"
-              className="flex flex-col items-center"
-            >
-              <div className="rounded-full overflow-hidden w-24 h-24 lg:w-32 lg:h-32 mb-4 hover:scale-110">
-                <img src={company2Logo} alt="HypeDocs" className="w-full h-full object-cover" />
-              </div>
-              <p className="text-lg lg:text-xl font-bold">HypeDocs</p>
-              <p className="text-sm font-light">Software Engineer Intern</p>
-              <p className="text-sm font-light">May 2024 - Aug 2024</p>
-            </motion.div>
 
-            {/* Internship 3 */}
-            <motion.div
-              variants={container(2.5)}
-              initial="hidden"
-              whileInView="visible"
-              className="flex flex-col items-center"
-            >
-              <div className="rounded-full overflow-hidden w-24 h-24 lg:w-32 lg:h-32 mb-4 hover:scale-110">
-                <img src={company3Logo} alt="InCraftables" className="w-full h-full object-cover" />
-              </div>
-              <p className="text-lg lg:text-xl font-bold">InCraftables</p>
-              <p className="text-sm font-light">Software Engineer Intern</p>
-              <p className="text-sm font-light">May 2023 - Aug 2023</p>
-            </motion.div>
-          </div>
         </div>
 
         {/* Projects Section */}
