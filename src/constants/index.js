@@ -45,7 +45,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 export const EXPERIENCES = [
   {
     year: "May 2025 - Aug. 2025",
-    role: "Incoming Software Engineer Intern",
+    role: "Software Engineer Intern",
     company: "Shopify",
     description: ["Developed a distributed compliance orchestration platform with event-driven pipelines that centralized policy rules and automated enforcement across merchant sites, ensuring consistent regulatory compliance and reliable execution at scale",
       "Directed multi-stage database schema migrations from legacy non-deterministic encryption to deterministic encryption, refactoring distributed services to guarantee seamless integration in high-throughput payment systems with zero downtime",
