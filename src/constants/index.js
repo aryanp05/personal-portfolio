@@ -1,5 +1,6 @@
 import testfor from "../assets/projects/p1testfor2.png"
 
+import finlake from "../assets/projects/finlake.png"
 import p0 from "../assets/projects/p0.jpg";
 import p1 from "../assets/projects/p1.png";
 import p2 from "../assets/projects/p2.png";
@@ -46,8 +47,12 @@ export const EXPERIENCES = [
     year: "May 2025 - Aug. 2025",
     role: "Incoming Software Engineer Intern",
     company: "Shopify",
-    description: [],
-    technologies: [],
+    description: ["Developed a distributed compliance orchestration platform with event-driven pipelines that centralized policy rules and automated enforcement across merchant sites, ensuring consistent regulatory compliance and reliable execution at scale",
+      "Directed multi-stage database schema migrations from legacy non-deterministic encryption to deterministic encryption, refactoring distributed services to guarantee seamless integration in high-throughput payment systems with zero downtime",
+      "Architected new fraud detection workflows by connecting services through the new deterministic encrypted data and included additional vendor data across GraphQL endpoints, increasing fraud detection by 25% & lowering false positives by 18%",
+      "Built intelligent merchant segmentation pipelines in Ruby, SQL, and GraphQL using risk-aware classification algorithms, automating high-trust onboarding flows that cut enterprise integration friction by 30% and reduced escalation volume by 20%"
+    ],
+    technologies: ["Ruby", "SQL", "GraphQL", "Event-driven Pipelines", "Deterministic Encryption", "Fraud Detection", "Merchant Segmentation", "Risk-aware Classification", "Enterprise Integration", "Zero Downtime"],
   },
   {
     year: "Jan. 2025 - Apr. 2025",
@@ -92,6 +97,16 @@ export const EXPERIENCES = [
 export const PROJECTS = [
   {
     id: 1,
+    title: "FinLake - Large Scale Data Processing & Agent Trading",
+    des: "FinLake processes 1,000+ financial new sources per minute through an ELT pipeline and medalion architecture to refine and clean data on an ADLS datalake using Delta Lake through DataBricks & Apache Spark. Here, LangGraph agents query using FastAPI and trade based on sentiment and specific workflows",
+    img: finlake,
+    link: "https://devpost.com/software/finlake",
+    linkName: "View Devpost",
+    links: [["Devpost Link", "https://devpost.com/software/finlake"]],
+    technologies: ["Python", "FastAPI", "LangGraph", "Apache Spark", "Delta Lake", "DataBricks"],
+  },
+  {
+    id: 2,
     title: "Dime Defender - Hack The North 2024 Winner🏅",
     des: "A chrome extension for Shopify/Amazon stores to control user spending by locking the PayNow button and simulating a courtroom between two AI lawyers debating whether you should purchase the product",
     img: p0,
@@ -100,7 +115,7 @@ export const PROJECTS = [
     links: [["Devpost Link", "https://devpost.com/software/budget-defender?ref_content=my-projects-tab&ref_feature=my_projects"],["Demo Vid Link", "https://youtu.be/I5dP9mbnx4M?t=5962"],["Github Link", "https://github.com/aryanp05/hackthenorth24"]],
     technologies: ["Node.js", "AWS", "Svelte", "Plasma", "VoiceFlow", "Manifest"],
   },{
-    id: 2,
+    id: 3,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
     img: c,
@@ -110,17 +125,17 @@ export const PROJECTS = [
     technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
-    link: "https://mockinvest.azurewebsites.net",
-    linkName: "View Live Website",
-    links: [["Website Link", "https://mockinvest.azurewebsites.net"],["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
+    link: "",
+    linkName: "Website No Longer Live",
+    links: [["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
-    id: 4,
+    id: 5,
     title: "AI Wildfire Path Predictor",
     des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
     img: p3,
@@ -130,7 +145,7 @@ export const PROJECTS = [
     technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Aryan Patel's Portfolio - Personal Website",
     des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
     img: p4,
@@ -140,7 +155,7 @@ export const PROJECTS = [
       technologies: ["React", "Next.js", "Tailwind"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Get Trash AI - 3rd @ Google SDC Hack With Ai",
     des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
     img: p5,
@@ -177,9 +192,9 @@ export const PROJECTF = [
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
-    link: "https://mockinvest.azurewebsites.net",
-    linkName: "View Live Website",
-    links: [["Website Link", "https://mockinvest.azurewebsites.net"],["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
+    link: "",
+    linkName: "Website No Longer Live",
+    links: [["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
@@ -222,6 +237,16 @@ export const CONTACT = {
 export const projects = [
   {
     id: 1,
+    title: "FinLake - Large Scale Data Processing & Agent Trading",
+    des: "FinLake processes 1,000+ financial new sources per minute through an ELT pipeline and medalion architecture to refine and clean data on an ADLS datalake using Delta Lake through DataBricks & Apache Spark. Here, LangGraph agents query using FastAPI and trade based on sentiment and specific workflows",
+    img: finlake,
+    link: "https://devpost.com/software/finlake",
+    linkName: "View Devpost",
+    links: [["Devpost Link", "https://devpost.com/software/finlake"]],
+    technologies: ["Python", "FastAPI", "LangGraph", "Apache Spark", "Delta Lake", "DataBricks"],
+  },
+  {
+    id: 2,
     title: "Dime Defender - Hack The North 2024 Winner🏅",
     des: "A chrome extension for Shopify/Amazon stores to control user spending by locking the PayNow button and simulating a courtroom between two AI lawyers debating whether you should purchase the product",
     img: p0,
@@ -231,17 +256,17 @@ export const projects = [
     technologies: ["Node.js", "AWS", "Svelte", "Plasma", "VoiceFlow", "Manifest"],
   },
   {
-    id: 2,
+    id: 3,
     title: "CATAN: C++ OOP Board Game",
     des: "The original Settlers of Catan board game made into a virtual experience, coded in C++ with a focus on abstraction, encapsulation, inheritence, and polymorphism, with low coupling and high cohesion",
     img: c,
-    link: "https://www.youtube.com/watch?v=yPALn5ZH8LA",
+    link: "https://replit.com/@a236pate/WATAN",
     linkName: "Play Game!",
-    links: [["Game Link", "https://www.youtube.com/watch?v=yPALn5ZH8LA"],["Game Link(Waterloo Edition)", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
+    links: [["Game Link", "https://replit.com/@a236pate/WATAN"],["Game Link(Waterloo Edition)", "https://github.com/aryanp05/Meerkat-ASL/tree/main"]],
     technologies: ["C++", "Object Orientated Programming"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
     img: p1,
@@ -251,7 +276,7 @@ export const projects = [
     technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
-    id: 4,
+    id: 5,
     title: "StudySync - AI Collaborative Study Platform",
     des: "StudySync turns group studying into collaborative competition. Earn points for staying focused & get docked for distractions like phone use with quizzes & personalized plans for locking in.",
     img: p7,
@@ -261,17 +286,17 @@ export const projects = [
     technologies: ["WebSockets", "Node.JS", "Open-CV", "Hugging Face", "FastAPI"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
-    link: "https://mockinvest.azurewebsites.net",
-    linkName: "View Live Website",
-    links: [["Website Link", "https://mockinvest.azurewebsites.net"],["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
+    link: "",
+    linkName: "Website No Longer Live",
+    links: [["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
-    id: 6,
+    id: 7,
     title: "AI Wildfire Path Predictor",
     des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
     img: p3,
@@ -281,7 +306,7 @@ export const projects = [
     technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
   },
   {
-    id: 7,
+    id: 8,
     title: "Get Trash AI - 3rd @ Google Hack With Ai 🥉",
     des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
     img: p5,
@@ -291,7 +316,7 @@ export const projects = [
       technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
   },
   {
-    id: 8,
+    id: 9,
     title: "Aryan Patel's Portfolio - Personal Website",
     des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
     img: p4,
@@ -328,9 +353,9 @@ export const projectsF = [
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
-    link: "https://mockinvest.azurewebsites.net",
-    linkName: "View Live Website",
-    links: [["Website Link", "https://mockinvest.azurewebsites.net"],["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
+    link: "",
+    linkName: "Website No Longer Live",
+    links: [["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
