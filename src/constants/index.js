@@ -44,6 +44,13 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 
 export const EXPERIENCES = [
   {
+    year: "Jan. 2026 - Apr. 2026",
+    role: "Incoming Software Engineer Intern - Trade",
+    company: "BitGO",
+    description: [],
+    technologies: [],
+  },
+  {
     year: "May 2025 - Aug. 2025",
     role: "Software Engineer Intern",
     company: "Shopify",

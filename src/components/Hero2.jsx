@@ -3,6 +3,7 @@ import { HERO_CONTENT, HERO_CONTENT2, HERO_CONTENT3, HERO_CONTENT5 } from "../co
 import profilePic2 from "../assets/Aryan.jpg";
 import waterlooLogo from "../assets/waterloo.png";
 import laurierLogo from "../assets/laurier.png";
+import company5Logo from "../assets/bitgo.webp";
 import company4Logo from "../assets/shopify.png";
 import company3Logo from "../assets/leapAP.jpeg";
 import company2Logo from "../assets/hypedocs.jpeg";
@@ -13,6 +14,12 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 
 const internships = [
+  {
+    logo: company5Logo,
+    company: "BitGO",
+    role: "Software Engineer Intern - Trade",
+    duration: "Jan. 2026 - Apr. 2026",
+  },
   {
     logo: company4Logo,
     company: "Shopify",
@@ -106,7 +113,7 @@ const Hero = () => {
         </div>
 
         {/* Right Side: Education and Internship */}
-        <div className="w-full lg:w-1/2 lg:p-8 lg:mt-40">
+        <div className="w-full lg:w-1/2 lg:p-8 lg:mt-19">
           <motion.h2
             variants={container(1)}
             initial="hidden"
@@ -157,7 +164,7 @@ const Hero = () => {
             Internships
           </motion.h2>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
   {internships.map((internship, index) => (
     <motion.div
       key={index}
