@@ -402,24 +402,23 @@ const ExperienceSelector = ({ experiences, selectedId, onSelect, compact = false
                 <BitGoTag>Trading Systems</BitGoTag>
                 <BitGoTag>Market Data</BitGoTag>
                 <BitGoTag>Distributed Infrastructure</BitGoTag>
-                <BitGoTag>Internal Tools</BitGoTag>
+                <BitGoTag>Order Books</BitGoTag>
               </div>
   
               <h3 className="text-3xl font-bold tracking-tight text-neutral-100 lg:text-4xl">
-                Built high-throughput trading infrastructure across market data,
-                order books, and internal trading operations tooling.
+                Built high-throughput, low-latency, and resilient trading infrastructure across market data and order books.
               </h3>
   
               <p className="mt-4 max-w-3xl leading-relaxed text-neutral-300/85">
-                My work focused on consolidating redundant WebSocket infrastructure,
-                enabling runtime product and exchange configuration updates, improving
-                order book reliability, and giving trading operators clearer real-time
-                visibility into liquidity provider health.
-              </p>
+              My work centered around the end-to-end ownership of BitGo’s market data services, including leading large-scale architectural changes, scaling high-throughput trading infrastructure, and handling production on-call incidents.
+              <br />
+              <br />
+                From optimizing low-latency order books and consolidating WebSocket infrastructure to enabling dynamic runtime configurations and building distributed systems that improved throughput and reduced memory usage, I worked across both architecture and operations to scale BitGo’s market data platform.
+                </p>
             </div>
   
             <div className="grid grid-cols-2 gap-3">
-              <BitGoMetricCard value="3.37K → 26" label="Talos WebSocket connections" />
+              <BitGoMetricCard value="3.37K → 26" label="market data WebSocket connections" />
               <BitGoMetricCard value="-48%" label="CPU usage on market data pods" />
               <BitGoMetricCard value="-60%+" label="pod memory usage" />
               <BitGoMetricCard value="9.5K → 13K" label="market data updates/sec" />
@@ -1256,6 +1255,13 @@ const Experience = () => {
             type: "bitgo",
             technologies: [
                 "Go",
+                "Market Data",
+                "Order Books",
+                "Trade Engine",
+                "Data Producers",
+                "Publishers",
+                "Kafka",
+                "Kubernetes",
                 "TypeScript",
                 "React",
                 "GraphQL",
@@ -1263,10 +1269,8 @@ const Experience = () => {
                 "Redis",
                 "WebSockets",
                 "OpenTelemetry",
-                "Kafka",
-                "Kubernetes",
-                "Market Data",
-                "Order Books",
+                "Product Registry",
+                "Trade Systems",
                 "Distributed Systems",
                 "Low-latency Systems",
               ],

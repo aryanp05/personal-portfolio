@@ -12,7 +12,7 @@ import p6 from "../assets/projects/p6.png";
 import p7 from "../assets/projects/studysync.jpeg";
 import c from "../assets/c.png"
 
-
+import jdc from "../assets/projects/jdc.jpeg";
 import p1f from "../assets/projects/pf1.jpg";
 import p2f from "../assets/projects/pf2.gif";
 import p4f from "../assets/projects/pf4.png";
@@ -354,6 +354,16 @@ export const projects = [
 export const projectsF = [
   {
     id: 1,
+    title: "2nd Place @ JDC Digital Strategy -- Canada East Region",
+    des: "Placed 2nd in the Canada East region across all top University teams for the JDC Digital Strategy competition, creating large scale, innovative, production ready, and easily intergrated digital solutions for some of the largest tech companies like Microsoft, Oracle, TD, etc.",
+    img: jdc,
+    link: "https://www.linkedin.com/posts/another-amazing-success-the-lazaridis-school-share-7419203594568114176-1YAn?utm_source=share&utm_medium=member_desktop&rcm=ACoAADzvfXEBy2xbmnRynKSrN9CoZv9dhBCbXHk",
+    linkName: "View JDC Laurier Post",
+    links: [["Laurier LinkedIn Link", "https://www.linkedin.com/posts/another-amazing-success-the-lazaridis-school-share-7419203594568114176-1YAn?utm_source=share&utm_medium=member_desktop&rcm=ACoAADzvfXEBy2xbmnRynKSrN9CoZv9dhBCbXHk"]],
+    technologies: [],
+  },
+  {
+    id: 2,
     title: "1st Place @ BDO Future Leaders Case Competition",
     des: "Placed first out of 1,500+ competitors on our presentation to help the Canadian Agriculture industry take advantage of new 2024 technology approvals and government financial aid programs to reach ESG goals in a financially feasible and profitable way",
     img: p1f,
@@ -363,7 +373,7 @@ export const projectsF = [
       technologies: [],
   },
   {
-    id: 2,
+    id: 3,
     title: "1st Place @ UW Management Consulting Case Competition",
     des:       "Placed first out of 400+ competitors on our presentation for DBS Financial Bank to grow by creating a new financial investing platform intergrated with a thematic stock portfolio generatng AI technology, StashAway.",
     img: p2f,
@@ -373,7 +383,7 @@ export const projectsF = [
       technologies: [],
   },
   {
-    id: 3,
+    id: 4,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
@@ -381,16 +391,6 @@ export const projectsF = [
     linkName: "Website No Longer Live",
     links: [["Github Link", "https://github.com/aryanp05/Mock-Investing---Harvard"]],
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
-  },
-  {
-    id: 4,
-    title: "Wealth Harbour - Portfolio Optimization Tool",
-    des:      "An advanced portfolio management with features including user authentication, stock selection, mean-variance optimization, HRP, and interactive visualizations using Plotly and Streamlit.",
-    img: p4f,
-    link: "https://github.com/aryanp05/Wealth-Harbour",
-    linkName: "View Github Repo",
-    links: [["Github", "https://github.com/aryanp05/Wealth-Harbour"]],
-    technologies: ["Python", "Numpy"],
   },
   {
     id: 5,
