@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { EXPERIENCES } from "../constants";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -352,7 +352,41 @@ const ExperienceSelector = ({ experiences, selectedId, onSelect, compact = false
     );
   };
   
-  const BitGoDetails = ({ blocks }) => {
+  const DetailsToggle = ({ expanded, onToggle }) => {
+    return (
+      <div className="mt-7 flex justify-center">
+        <button
+          type="button"
+          onClick={onToggle}
+          className="group inline-flex items-center justify-center gap-3 rounded-full bg-neutral-950/40 px-8 py-3 text-lg font-semibold tracking-tight text-white shadow-lg shadow-black/30 backdrop-blur transition duration-300 ease-in-out hover:bg-neutral-950/60 focus:outline-none focus:ring-0"
+        >
+          <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+            {expanded ? "Show less" : "Show more"}
+          </span>
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            className={[
+              "h-6 w-10 transition-transform duration-300",
+              expanded ? "rotate-180" : "rotate-0",
+            ].join(" ")}
+          >
+            <path
+              d="M4 9l8 8 8-8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-neutral-200/90 group-hover:text-white"
+            />
+          </svg>
+        </button>
+      </div>
+    );
+  };
+
+  const BitGoDetails = ({ blocks, expanded, onToggle }) => {
     return (
       <div className="mt-10 space-y-8">
         <motion.div
@@ -393,105 +427,107 @@ const ExperienceSelector = ({ experiences, selectedId, onSelect, compact = false
           </div>
         </motion.div>
   
-        {blocks.map((block, index) => (
-          <motion.div
-            key={block.title}
-            layout
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.18 }}
-            transition={{ duration: 0.45, ease: "easeOut", delay: Math.min(index * 0.04, 0.2) }}
-            className="group relative overflow-hidden rounded-3xl border border-neutral-800/70 bg-neutral-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur transition-all duration-300 hover:border-purple-400/30 hover:bg-neutral-950/60 lg:p-8"
-          >
-            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-yellow-300 via-pink-400 to-purple-500 opacity-80" />
-            <div className="absolute -right-32 top-10 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  
-            <div className="relative">
-              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                <div className="min-w-0">
-                  <div className="mb-3 flex flex-wrap gap-2">
-                    {block.tags?.map((tag) => (
-                      <BitGoTag key={`${block.title}-${tag}`}>{tag}</BitGoTag>
+        <DetailsToggle expanded={expanded} onToggle={onToggle} />
+
+        {expanded &&
+          blocks.map((block, index) => (
+            <motion.div
+              key={block.title}
+              layout
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{ duration: 0.45, ease: "easeOut", delay: Math.min(index * 0.04, 0.2) }}
+              className="group relative overflow-hidden rounded-3xl border border-neutral-800/70 bg-neutral-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur transition-all duration-300 hover:border-purple-400/30 hover:bg-neutral-950/60 lg:p-8"
+            >
+              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-yellow-300 via-pink-400 to-purple-500 opacity-80" />
+              <div className="absolute -right-32 top-10 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+              <div className="relative">
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                  <div className="min-w-0">
+                    <div className="mb-3 flex flex-wrap gap-2">
+                      {block.tags?.map((tag) => (
+                        <BitGoTag key={`${block.title}-${tag}`}>{tag}</BitGoTag>
+                      ))}
+                    </div>
+
+                    <h3 className="text-2xl font-semibold tracking-tight text-neutral-100 lg:text-3xl">
+                      {block.title}
+                    </h3>
+
+                    {block.subtitle && (
+                      <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-400">
+                        {block.subtitle}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="mt-6 grid grid-cols-1 gap-7 lg:grid-cols-[1.35fr_0.65fr]">
+                  <div>
+                    {(() => {
+                      const mergedDescription = [
+                        ...(block.description || []),
+                        ...(block.mainSections?.flatMap((s) => s.points || []) || []),
+                      ];
+
+                      return (
+                        <ul className="list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
+                          {mergedDescription.map((item, idx) => (
+                            <li key={`${block.title}-desc-${idx}`}>{item}</li>
+                          ))}
+                        </ul>
+                      );
+                    })()}
+
+                    <BitGoRuntimeFlow block={block} />
+
+                    {block.architecture?.length > 0 && (
+                      <div className="mt-6 rounded-2xl border border-neutral-800/70 bg-black/20 p-4">
+                        <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                          Architecture Notes
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                          {block.architecture.map((item) => (
+                            <div
+                              key={`${block.title}-${item.label}`}
+                              className="rounded-xl border border-neutral-800/60 bg-neutral-900/40 p-3"
+                            >
+                              <div className="text-sm font-semibold text-neutral-200">
+                                {item.label}
+                              </div>
+                              <div className="mt-1 text-sm leading-relaxed text-neutral-400">
+                                {item.value}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                    {block.metrics?.map((metric) => (
+                      <BitGoMetricCard
+                        key={`${block.title}-${metric.label}`}
+                        value={metric.value}
+                        label={metric.label}
+                      />
                     ))}
                   </div>
-  
-                  <h3 className="text-2xl font-semibold tracking-tight text-neutral-100 lg:text-3xl">
-                    {block.title}
-                  </h3>
-  
-                  {block.subtitle && (
-                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-400">
-                      {block.subtitle}
-                    </p>
-                  )}
                 </div>
-  
-              </div>
-  
-              <div className="mt-6 grid grid-cols-1 gap-7 lg:grid-cols-[1.35fr_0.65fr]">
-                <div>
-                  {(() => {
-                    const mergedDescription = [
-                      ...(block.description || []),
-                      ...(block.mainSections?.flatMap((s) => s.points || []) || []),
-                    ]
 
-                    return (
-                      <ul className="list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
-                        {mergedDescription.map((item, idx) => (
-                          <li key={`${block.title}-desc-${idx}`}>{item}</li>
-                        ))}
-                      </ul>
-                    );
-                  })()}
-  
-                  <BitGoRuntimeFlow block={block} />
-
-                  {block.architecture?.length > 0 && (
-                    <div className="mt-6 rounded-2xl border border-neutral-800/70 bg-black/20 p-4">
-                      <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-                        Architecture Notes
-                      </div>
-  
-                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        {block.architecture.map((item) => (
-                          <div
-                            key={`${block.title}-${item.label}`}
-                            className="rounded-xl border border-neutral-800/60 bg-neutral-900/40 p-3"
-                          >
-                            <div className="text-sm font-semibold text-neutral-200">
-                              {item.label}
-                            </div>
-                            <div className="mt-1 text-sm leading-relaxed text-neutral-400">
-                              {item.value}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-  
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
-                  {block.metrics?.map((metric) => (
-                    <BitGoMetricCard
-                      key={`${block.title}-${metric.label}`}
-                      value={metric.value}
-                      label={metric.label}
-                    />
-                  ))}
-                </div>
+                <BitGoVisuals block={block} />
               </div>
-  
-              <BitGoVisuals block={block} />
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </div>
     );
   };
 
-  const ShopifyDetails = ({ blocks }) => {
+  const ShopifyDetails = ({ blocks, expanded, onToggle }) => {
     return (
       <div className="mt-10 space-y-8">
         <motion.div
@@ -571,58 +607,61 @@ const ExperienceSelector = ({ experiences, selectedId, onSelect, compact = false
             </div>
           </div>
         </motion.div>
-  
-        {blocks.map((block) => (
-          <motion.div
-            key={block.title}
-            layout
-            className="overflow-hidden rounded-2xl border border-neutral-800/60 bg-neutral-950/30 p-6 backdrop-blur lg:p-8"
-          >
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.45fr_0.55fr]">
-              <div>
-                <div className="mb-3 flex flex-wrap items-center gap-2">
-                  {block.tags?.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-green-400/20 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+
+        <DetailsToggle expanded={expanded} onToggle={onToggle} />
+
+        {expanded &&
+          blocks.map((block) => (
+            <motion.div
+              key={block.title}
+              layout
+              className="overflow-hidden rounded-2xl border border-neutral-800/60 bg-neutral-950/30 p-6 backdrop-blur lg:p-8"
+            >
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.45fr_0.55fr]">
+                <div>
+                  <div className="mb-3 flex flex-wrap items-center gap-2">
+                    {block.tags?.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-green-400/20 bg-green-500/10 px-3 py-1 text-xs font-medium text-green-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3 className="text-2xl font-semibold tracking-tight text-neutral-100">
+                    {block.title}
+                  </h3>
+
+                  <ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
+                    {block.description.map((item, idx) => (
+                      <li key={`${block.title}-desc-${idx}`}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
-  
-                <h3 className="text-2xl font-semibold tracking-tight text-neutral-100">
-                  {block.title}
-                </h3>
-  
-                <ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
-                  {block.description.map((item, idx) => (
-                    <li key={`${block.title}-desc-${idx}`}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-  
-              <div className="rounded-2xl border border-neutral-800/60 bg-black/20 p-5">
-                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-                  Impact
-                </div>
-  
-                <div className="mt-4 space-y-4">
-                  {block.metrics.map((metric) => (
-                    <div key={`${block.title}-${metric.label}`}>
-                      <div className="bg-gradient-to-r from-green-300 via-emerald-400 to-teal-300 bg-clip-text text-2xl font-bold text-transparent">
-                        {metric.value}
+
+                <div className="rounded-2xl border border-neutral-800/60 bg-black/20 p-5">
+                  <div className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                    Impact
+                  </div>
+
+                  <div className="mt-4 space-y-4">
+                    {block.metrics.map((metric) => (
+                      <div key={`${block.title}-${metric.label}`}>
+                        <div className="bg-gradient-to-r from-green-300 via-emerald-400 to-teal-300 bg-clip-text text-2xl font-bold text-transparent">
+                          {metric.value}
+                        </div>
+                        <div className="mt-1 text-sm leading-relaxed text-neutral-400">
+                          {metric.label}
+                        </div>
                       </div>
-                      <div className="mt-1 text-sm leading-relaxed text-neutral-400">
-                        {metric.label}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </div>
     );
   };
@@ -660,7 +699,7 @@ const experienceThemes = {
   },
 };
 
-const ThemedHighlightsDetails = ({ experience }) => {
+const ThemedHighlightsDetails = ({ experience, expanded, onToggle }) => {
   const theme = experienceThemes[experience.theme] || experienceThemes.default;
   return (
     <div className="mt-10 space-y-8">
@@ -709,43 +748,48 @@ const ThemedHighlightsDetails = ({ experience }) => {
           </div>
         </div>
       </motion.div>
-      <motion.div
-        layout
-        className="overflow-hidden rounded-3xl border border-neutral-800/70 bg-neutral-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur lg:p-8"
-      >
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.45fr_0.55fr]">
-          <div>
-            <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-              Key Contributions
+
+      <DetailsToggle expanded={expanded} onToggle={onToggle} />
+
+      {expanded && (
+        <motion.div
+          layout
+          className="overflow-hidden rounded-3xl border border-neutral-800/70 bg-neutral-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur lg:p-8"
+        >
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.45fr_0.55fr]">
+            <div>
+              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                Key Contributions
+              </div>
+              <ul className="list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
+                {(experience.description || []).map((point, index) => (
+                  <li key={`${experience.id}-point-${index}`}>{point}</li>
+                ))}
+              </ul>
             </div>
-            <ul className="list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
-              {(experience.description || []).map((point, index) => (
-                <li key={`${experience.id}-point-${index}`}>{point}</li>
-              ))}
-            </ul>
+            <div className="rounded-2xl border border-neutral-800/60 bg-black/20 p-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                Technologies
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {(experience.technologies || []).map((tech) => (
+                  <span
+                    key={tech}
+                    className={`rounded-full border px-3 py-1.5 text-sm font-medium ${theme.tag}`}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="rounded-2xl border border-neutral-800/60 bg-black/20 p-5">
-            <div className="text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-              Technologies
-            </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {(experience.technologies || []).map((tech) => (
-                <span
-                  key={tech}
-                  className={`rounded-full border px-3 py-1.5 text-sm font-medium ${theme.tag}`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 };
 
-const StandardExperienceDetails = ({ experience }) => {
+const StandardExperienceDetails = ({ experience, expanded, onToggle }) => {
   const matchedExperience = EXPERIENCES.find((item) =>
     experience.matchNames.some((name) =>
       item.company?.toLowerCase().includes(name.toLowerCase())
@@ -753,6 +797,7 @@ const StandardExperienceDetails = ({ experience }) => {
   );
 
   const description = matchedExperience?.description || experience.description || [];
+  const visible = expanded ? description : description.slice(0, 2);
 
   return (
     <div className="mt-10 rounded-2xl border border-neutral-800/60 bg-neutral-950/30 p-6 backdrop-blur lg:p-8">
@@ -761,10 +806,14 @@ const StandardExperienceDetails = ({ experience }) => {
       </h3>
 
       <ul className="mt-4 list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
-        {description.map((point, index) => (
+        {visible.map((point, index) => (
           <li key={`${experience.id}-point-${index}`}>{point}</li>
         ))}
       </ul>
+
+      {description.length > 2 && (
+        <DetailsToggle expanded={expanded} onToggle={onToggle} />
+      )}
     </div>
   );
 };
@@ -801,6 +850,15 @@ const TechStackBar = ({ technologies = [] }) => {
 
 const Experience = () => {
   const [selectedId, setSelectedId] = useState("bitgo");
+  const headerRef = useRef(null);
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
+
+  const scrollToHeader = () => {
+    const el = headerRef.current;
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 90;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   const bitgoBlocks = useMemo(
     () => [
@@ -1376,7 +1434,10 @@ const Experience = () => {
       </motion.h2>
 
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+        <div
+          ref={headerRef}
+          className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between"
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={`${selectedExperience.id}-header`}
@@ -1417,7 +1478,10 @@ const Experience = () => {
             <ExperienceSelector
               experiences={experiences}
               selectedId={selectedId}
-              onSelect={setSelectedId}
+              onSelect={(id) => {
+                setSelectedId(id);
+                setDetailsExpanded(true);
+              }}
               compact
             />
           </div>
@@ -1439,13 +1503,29 @@ const Experience = () => {
             transition={{ duration: 0.45, ease: "easeOut" }}
           >
             {selectedExperience.type === "bitgo" ? (
-              <BitGoDetails blocks={bitgoBlocks} />
+              <BitGoDetails
+                blocks={bitgoBlocks}
+                expanded={detailsExpanded}
+                onToggle={() => setDetailsExpanded((v) => !v)}
+              />
             ) : selectedExperience.type === "shopify" ? (
-              <ShopifyDetails blocks={shopifyBlocks} />
+              <ShopifyDetails
+                blocks={shopifyBlocks}
+                expanded={detailsExpanded}
+                onToggle={() => setDetailsExpanded((v) => !v)}
+              />
             ) : selectedExperience.type === "themed" ? (
-              <ThemedHighlightsDetails experience={selectedExperience} />
+              <ThemedHighlightsDetails
+                experience={selectedExperience}
+                expanded={detailsExpanded}
+                onToggle={() => setDetailsExpanded((v) => !v)}
+              />
             ) : (
-              <StandardExperienceDetails experience={selectedExperience} />
+              <StandardExperienceDetails
+                experience={selectedExperience}
+                expanded={detailsExpanded}
+                onToggle={() => setDetailsExpanded((v) => !v)}
+              />
             )}
           </motion.div>
         </AnimatePresence>
@@ -1458,7 +1538,11 @@ const Experience = () => {
           <ExperienceSelector
             experiences={experiences}
             selectedId={selectedId}
-            onSelect={setSelectedId}
+            onSelect={(id) => {
+              setSelectedId(id);
+              setDetailsExpanded(true);
+              requestAnimationFrame(scrollToHeader);
+            }}
           />
         </div>
       </div>

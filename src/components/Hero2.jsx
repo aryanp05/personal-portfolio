@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HERO_CONTENT, HERO_CONTENT2, HERO_CONTENT3, HERO_CONTENT5 } from "../constants";
 import profilePic2 from "../assets/Aryan.jpg";
 import waterlooLogo from "../assets/waterloo.png";
@@ -57,6 +57,24 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 640px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", update);
+      return () => media.removeEventListener("change", update);
+    }
+
+    media.addListener(update);
+    return () => media.removeListener(update);
+  }, []);
+
+  const delayFor = (delay) => (isMobile ? 0.5 : delay);
+
   return (
     <div id="hero" className="border-b border-neutral-900 pt-0 pb-8 mt-12 ">
       <div className="flex flex-wrap">
@@ -72,7 +90,7 @@ const Hero = () => {
               Aryan Patel
             </motion.h1> */}
             <motion.span
-              variants={container(0.25)}
+              variants={container(delayFor(0.25))}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
@@ -81,7 +99,7 @@ const Hero = () => {
               A Software Engineer
             </motion.span>
             <motion.span
-              variants={container(1)}
+              variants={container(delayFor(1))}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
@@ -90,7 +108,7 @@ const Hero = () => {
               With a Passion for Coding, Building, Optimizing
             </motion.span>
             <motion.span
-              variants={container(2.25)}
+              variants={container(delayFor(2.25))}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
@@ -99,7 +117,7 @@ const Hero = () => {
               & Some Trading Algorithms
             </motion.span>
             <motion.p
-                variants={container(initialDelay + 0.5)}
+                variants={container(delayFor(initialDelay + 0.5))}
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
@@ -108,7 +126,7 @@ const Hero = () => {
                👋 Hello, I'm <b>Aryan Patel</b>, and there is <b>nothing</b> I love more than being a <b>Software Engineer</b>
               </motion.p>
               <motion.p
-                variants={container(initialDelay + 0.5)}
+                variants={container(delayFor(initialDelay + 0.5))}
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
@@ -117,7 +135,7 @@ const Hero = () => {
                💻  You’ll often see in the office way past 8PM; Not because my manager has strict deadline, but because coding is genuinely like a gaming session -- I get hooked on building out a new feature, optimizing a code path, designing a beautiful solution, and learning new techniques from engineers that me feel like “Wow, that is so interesting” (and no, that’s not a GPT em dash)
               </motion.p>
               <motion.p
-                variants={container(initialDelay + 0.5)}
+                variants={container(delayFor(initialDelay + 0.5))}
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
@@ -131,13 +149,13 @@ const Hero = () => {
               {/* My screen time on the Interactive Brokers App is actually more than my screen time on Instagram or Tiktok (but not both combined) */}
 
             {/* Profile Picture */}
-            <div className="mt-0 pt-0 w-full lg:w-1/3 lg:p-6">
+            <div className="mt-0 pt-0 w-full pb-4 sm:pb-0 lg:w-1/3 lg:p-6">
               <div className="flex justify-center">
                 <motion.img
                   initial={{ x: -100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   viewport={viewportOnce}
-                  transition={{ duration: 0.5, delay: initialDelay + 0.75}}
+                  transition={{ duration: 0.5, delay: delayFor(initialDelay + 0.75) }}
                   src={profilePic2}
                   alt="Profile Picture"
                   className="lg:mt-4 rounded-full w-40 h-40 lg:w-48 lg:h-48 object-cover"
@@ -151,7 +169,7 @@ const Hero = () => {
         {/* Right Side: Internships and Education */}
         <div className="w-full lg:w-1/2 lg:p-8 lg:mt-19">
           <motion.h2
-            variants={container(initialDelay + 0.5)}
+            variants={container(delayFor(initialDelay + 0.5))}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
@@ -164,7 +182,7 @@ const Hero = () => {
             {internships.map((internship, index) => (
               <motion.div
                 key={index}
-                variants={container(initialDelay + 1.5 + index * 0.25)}
+                variants={container(delayFor(initialDelay + 1.5 + index * 0.25))}
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
@@ -187,7 +205,7 @@ const Hero = () => {
           </div>
 
           <motion.h2
-            variants={container(initialDelay + 0.75)}
+            variants={container(delayFor(initialDelay + 0.75))}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
@@ -198,7 +216,7 @@ const Hero = () => {
 
           <div className="w-full flex flex-nowrap justify-evenly">
             <motion.div
-              variants={container(initialDelay + 1)}
+              variants={container(delayFor(initialDelay + 1))}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
@@ -220,7 +238,7 @@ const Hero = () => {
             </motion.div>
 
             <motion.div
-              variants={container(initialDelay + 1.25)}
+              variants={container(delayFor(initialDelay + 1.25))}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
@@ -246,7 +264,7 @@ const Hero = () => {
         <div className="flex w-full items-center justify-center ">
             <AnchorLink className="anchor-link" offset={50} href="#experience">
             <motion.div
-              variants={container(8)}
+              variants={container(delayFor(8))}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
