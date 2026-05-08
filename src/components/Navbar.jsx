@@ -5,7 +5,6 @@ import { FaGithub } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navBackground, setNavBackground] = useState("bg-transparent");
@@ -71,12 +70,6 @@ const Navbar = () => {
         
       </div> */}
       <div className="m-8 flex items-center justify-center gap-6 text-3xl duration-500">
-        <Link
-          to="/bitgo"
-          className="text-sm underline underline-offset-4 hover:text-yellow-400 transition-colors"
-        >
-          BitGo
-        </Link>
         <a href="https://www.linkedin.com/in/aryanpatel05/">
           <FaLinkedin className="hover:text-yellow-400 hover:scale-110" />
         </a>

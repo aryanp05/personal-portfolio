@@ -1,5 +1,5 @@
-import React from 'react'
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Hero2 from "./components/Hero2"
@@ -15,12 +15,28 @@ import Endbar from './components/Endbar'
 import RecentProjects from './components/RecentProjects'
 import { ExpandableCardDemo } from './components/Skills'
 import ProjectGallery from './components/ProjectGallery'
-import Bitgo from "./pages/Bitgo";
 import CarouselProjects from './components/CarouselProjects'
 import ExperienceSelector from './components/ExperienceSelector'
 import CurrentTradingStrategies from './components/CurrentTradingStrategies'
 
 const Landing = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash?.replace("#", "");
+    if (!hash) return;
+
+    // Let the page paint first so layout is stable.
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 0);
+
+    return () => window.clearTimeout(t);
+  }, [location.hash]);
+
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">
       <div className="fixed top-0 -z-10 h-full w-full">
@@ -47,7 +63,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/bitgo" element={<Bitgo />} />
+      <Route path="/bitgo" element={<Navigate to="/#experience" replace />} />
     </Routes>
   )
 }
