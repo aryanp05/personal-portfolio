@@ -10,6 +10,7 @@ import incraftablesLogo from "../assets/incraftables.png";
 import neonicwrapsLogo from "../assets/neonicwraps.jpeg";
 
 import BitGoDetails from "./experience/BitGoDetails";
+import DetailsToggle from "./experience/DetailsToggle";
 import { BITGO_BLOCKS } from "./experience/bitgoContent";
 const ExperienceSelector = ({ experiences, selectedId, onSelect, compact = false }) => {
     return (
