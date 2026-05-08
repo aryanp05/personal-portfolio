@@ -1,6 +1,7 @@
 import testfor from "../assets/projects/p1testfor2.png"
 
-import finlake from "../assets/projects/finlake.png"
+import finlake from "../assets/projects/finlake2.webp"
+import opticode from "../assets/projects/opticode.png"
 import p0 from "../assets/projects/p0.jpg";
 import p1 from "../assets/projects/p1.png";
 import p2 from "../assets/projects/p2.png";
@@ -45,10 +46,16 @@ export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer w
 export const EXPERIENCES = [
   {
     year: "Jan. 2026 - Apr. 2026",
-    role: "Incoming Software Engineer Intern - Trade",
-    company: "BitGO",
-    description: [],
-    technologies: [],
+    role: "Trade Software Engineer Intern",
+    company: "BitGo",
+    description: [
+      "Redesigned BitGo's real-time market data pipeline into a consolidated, multiplexed WebSocket model, with low-latency producers & optimized publishers to reduce connections from 3.37K → 26, lowering CPU usage by 48% and pod memory by 60%+",
+      "Engineered a deterministic fanout system to parallelize Level 2 order book processing across dynamically sized worker pools that increased market data throughput from 9.5K to 13k updates/second while eliminating contention & race conditions",
+      "Eliminated pod restarts to apply trade engine config changes by building a zero-downtime dynamic configuration over the trade engine cache that propagates real-time updates across WebSocket connections, product registries, trading venues, and orderbooks",
+      "Optimized the trade API order book system powering real-time Level 2 market data & creation, updates, and lifecycle management of Level 2 order books, improving memory efficiency by 27% and stabilizing latency for high-frequency order book updates",
+      "Developed a dedicated Transaction Cost Analysis market data feed service, introducing new producers & publishers, prime-org–based caching reducing storage by 75%, and batched Redis writes to support high-throughput, low-latency indicative pricing feeds",
+    ],
+    technologies: ["Golang", "Redis", "Docker"],
   },
   {
     year: "May 2025 - Aug. 2025",
@@ -66,9 +73,9 @@ export const EXPERIENCES = [
     role: "Software Engineer Intern",
     company: "Leap AP",
     description: ["Developed secure software to facilities large-scale, vendor financial transactions and accounts payable automation within an Agile based team using Node.js and Express for 30+ property management companies in Canada and the United States",
-                  "Monitored and maintained system infrastructure along with production software integrity using GitLab, Grafana, and Gray Logs, troubleshooting, debugging and resolving integration failure to ensure minimal downtime and maximum user efficiencies",
+                  "Monitored and maintained system infrastructure along with production software integrity using GitLab, Grafana, and Graylog, troubleshooting, debugging and resolving integration failure to ensure minimal downtime and maximum user efficiencies",
                   "Individually designed, implemented, tested, and monitored new software across local, development, and production environments"],
-    technologies: ["Node.JS", "Express", "GitLab", "Grafana", "Gray Logs"],
+    technologies: ["Node.js", "Express", "GitLab", "Grafana", "Graylog"],
   },
   {
     year: "May 2024 - Aug. 2024",
@@ -77,7 +84,7 @@ export const EXPERIENCES = [
     description: ["Refactored backend code to optimize runtime efficiency and implemented asynchronous programming with bulk data requests on Firebase for fast API calls, improving code runtime by 25% and reducing query times by 48%", 
                   "Individually designed and implemented new product features based on client requests leveraging Node.js & Slack API",
                   "Seamlessly developed code and thoroughly tested new product functionality with serverless functions using Netlify, easily integrating new features to main branches and deploying code, greatly decreasing ship to production times"],
-    technologies: ["Node.JS", "FireBase", "Slack API", "Bubble"],
+    technologies: ["Node.js", "Firebase", "Slack API", "Bubble"],
   },
   {
     year: "May 2023 - Aug 2023",
@@ -95,7 +102,7 @@ export const EXPERIENCES = [
     description: ["Designed a full-stack website with HTML and managed online MongoDB inventory while perfoming database queries using SQL",
                   "Launched and operated a Shopify e-commerce business selling a diverse range of tech products, achieving $10k+ in sales.",
                   "Managed advertising campaigns through digital marketing channels, including influencer partnership promotion, to drive sales"],
-    technologies: ["Entrepreneurship", "HTML", "CSS", "JavaScript", "Sqlite", "MongoDB"],
+    technologies: ["Entrepreneurship", "HTML", "CSS", "JavaScript", "SQLite", "MongoDB"],
   },
 ];
 
@@ -254,6 +261,16 @@ export const projects = [
   },
   {
     id: 2,
+    title: "OptiCode - macOS Clipboard Manager & Encrypted Secrets Vault",
+    des: "OptiCode is a macOS menu-bar style background agent that provides nine persistent clipboard slots, image clipboard previews, and a password-protected encrypted secrets vault. Built with Swift, CryptoKit, Keychain, and CGEventTap.",
+    img: opticode,
+    link: "https://github.com/YOUR_USERNAME/opticode",
+    linkName: "View GitHub",
+    links: [["GitHub Link", "https://github.com/YOUR_USERNAME/opticode"]],
+    technologies: ["Swift", "Cocoa", "SwiftUI", "CryptoKit", "Keychain", "CGEventTap"],
+  },
+  {
+    id: 3,
     title: "Dime Defender - Hack The North 2024 Winner🏅",
     des: "A chrome extension for Shopify/Amazon stores to control user spending by locking the PayNow button and simulating a courtroom between two AI lawyers debating whether you should purchase the product",
     img: p0,
@@ -263,7 +280,7 @@ export const projects = [
     technologies: ["Node.js", "AWS", "Svelte", "Plasma", "VoiceFlow", "Manifest"],
   },
   {
-    id: 3,
+    id: 4,
     title: "CATAN: C++ OOP Board Game",
     des: "The original Settlers of Catan board game made into a virtual experience, coded in C++ with a focus on abstraction, encapsulation, inheritence, and polymorphism, with low coupling and high cohesion",
     img: c,
@@ -273,7 +290,7 @@ export const projects = [
     technologies: ["C++", "Object Orientated Programming"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Meerkat ASL Sign Language Reader",
     des: "A cutting-edge ASL recognition system featuring user data capture, AI training, fine-tuning adjustments, and an intuitive GUI.",
     img: p1,
@@ -283,17 +300,17 @@ export const projects = [
     technologies: ["Python", "ML/AI", "TensorFlow", "Open-CV", "Mediapipe", "Scikit Learn"],
   },
   {
-    id: 5,
+    id: 6,
     title: "StudySync - AI Collaborative Study Platform",
     des: "StudySync turns group studying into collaborative competition. Earn points for staying focused & get docked for distractions like phone use with quizzes & personalized plans for locking in.",
     img: p7,
     link: "https://devpost.com/software/studysync-7awz28",
     linkName: "View Devpost",
     links: [["Devpost Link", "https://devpost.com/software/studysync-7awz28"]],
-    technologies: ["WebSockets", "Node.JS", "Open-CV", "Hugging Face", "FastAPI"],
+    technologies: ["WebSockets", "Node.js", "Open-CV", "Hugging Face", "FastAPI"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Mock Investor - Paper Portfolio Website",
     des:       "A full stack all-in-one platform where you can simulate stock market investing with $10,000 virtual USD, track a live portfolio, and learn the ropes without risking real money.",
     img: p2,
@@ -303,7 +320,7 @@ export const projects = [
     technologies: ["Flask","SQL", "Azure", "HTML", "CSS", "JavaScript", "Python"],
   },
   {
-    id: 7,
+    id: 8,
     title: "AI Wildfire Path Predictor",
     des:       "An AI model using satellite photography, wind, fire weather, drought, and other data to accrately predict the spread of wildfires across the globe to aid in fighting aganist growing numbers of fires. Finalist at WatAI Hackathon",
     img: p3,
@@ -313,7 +330,7 @@ export const projects = [
     technologies: ["Python", "PyTorch", "TorchVision", "Geopandas"],
   },
   {
-    id: 8,
+    id: 9,
     title: "Get Trash AI - 3rd @ Google Hack With Ai 🥉",
     des:      "AI-powered full stack web application for live photo scanning trash, using powerful machine learning paired with a 6.5k+ item dataset to indentify recycable materials vs trash. Placed top 3 at Hack with AI by Google SDC ",
     img: p5,
@@ -323,7 +340,7 @@ export const projects = [
       technologies: ["Python", "TensorFlow", "Flask", "Open-CV"],
   },
   {
-    id: 9,
+    id: 10,
     title: "Aryan Patel's Portfolio - Personal Website",
     des:       "My personal portfolio website, built from scratch with React & Tailwind, showcasing my projects, skills, and experiences.",
     img: p4,

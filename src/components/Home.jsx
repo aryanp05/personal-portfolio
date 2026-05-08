@@ -52,7 +52,7 @@ const Home = () => {
           animate="visible"
           className="text-center bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-2xl lg:text-4xl tracking-tight text-transparent"
         >
-Developer | Entrepreneur | Innovator
+Engineer | Entrepreneur | Innovator
         </motion.span>
         <AnchorLink
         className="anchor-link" offset={0} href="#hero">

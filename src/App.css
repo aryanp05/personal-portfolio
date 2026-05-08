@@ -40,3 +40,59 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Custom Horizontal Scroller Styles */
+.project-gallery-container {
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.project-gallery-container .custom-track {
+  display: flex;
+  align-items: stretch;
+  will-change: transform;
+}
+
+/* Hover zone styles */
+.project-gallery-container .hover-zone {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.project-gallery-container .hover-zone:hover {
+  opacity: 1;
+}
+
+/* Visual indicators for hover zones */
+.project-gallery-container .hover-zone::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transition: all 0.3s ease;
+}
+
+.project-gallery-container .hover-zone.left::after {
+  left: 20px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #4299e1 transparent transparent;
+}
+
+.project-gallery-container .hover-zone.right::after {
+  right: 20px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #4299e1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Reduce hover zone size on mobile */
+  .project-gallery-container .hover-zone {
+    width: 25% !important;
+  }
+}

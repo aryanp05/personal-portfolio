@@ -7,3 +7,10 @@
 :root {
   font-family: "Inter", sans-serif
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.carousel-scrollbar::-webkit-scrollbar { height: 4px; }
+.carousel-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.carousel-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(to right, #facc15, #ec4899, #a855f7); border-radius: 9999px; }
