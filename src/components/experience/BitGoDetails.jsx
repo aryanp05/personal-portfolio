@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import DetailsToggle from "./DetailsToggle";
+
+const BITGO_COLLAPSED_TAIL_COUNT = 5;
 
 const ImageCarousel = ({ title, label, images, aspectClass = "aspect-[24/9]" }) => {
   const [idx, setIdx] = useState(0);
@@ -223,7 +225,104 @@ const BitGoRuntimeFlow = ({ block }) => {
   );
 };
 
+const renderBitGoBlock = (block, index) => (
+  <motion.div
+    key={block.title}
+    layout
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.18 }}
+    transition={{ duration: 0.45, ease: "easeOut", delay: Math.min(index * 0.04, 0.2) }}
+    className="group relative overflow-hidden rounded-3xl border border-neutral-800/70 bg-neutral-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur transition-all duration-300 hover:border-purple-400/30 hover:bg-neutral-950/60 lg:p-8"
+  >
+    <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-yellow-300 via-pink-400 to-purple-500 opacity-80" />
+    <div className="absolute -right-32 top-10 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+    <div className="relative">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+        <div className="min-w-0">
+          <div className="mb-3 flex flex-wrap gap-2">
+            {block.tags?.map((tag) => (
+              <BitGoTag key={`${block.title}-${tag}`}>{tag}</BitGoTag>
+            ))}
+          </div>
+
+          <h3 className="text-2xl font-semibold tracking-tight text-neutral-100 lg:text-3xl">
+            {block.title}
+          </h3>
+
+          {block.subtitle && (
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-400">{block.subtitle}</p>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-6 grid grid-cols-1 gap-7 lg:grid-cols-[1.35fr_0.65fr]">
+        <div>
+          {(() => {
+            const mergedDescription = [
+              ...(block.description || []),
+              ...(block.mainSections?.flatMap((s) => s.points || []) || []),
+            ];
+
+            return (
+              <ul className="list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
+                {mergedDescription.map((item, idx) => (
+                  <li key={`${block.title}-desc-${idx}`}>{item}</li>
+                ))}
+              </ul>
+            );
+          })()}
+
+          <BitGoRuntimeFlow block={block} />
+
+          {block.architecture?.length > 0 && (
+            <div className="mt-6 rounded-2xl border border-neutral-800/70 bg-black/20 p-4">
+              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
+                Architecture Notes
+              </div>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {block.architecture.map((item) => (
+                  <div
+                    key={`${block.title}-${item.label}`}
+                    className="rounded-xl border border-neutral-800/60 bg-neutral-900/40 p-3"
+                  >
+                    <div className="text-sm font-semibold text-neutral-200">{item.label}</div>
+                    <div className="mt-1 text-sm leading-relaxed text-neutral-400">{item.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
+          {block.metrics?.map((metric) => (
+            <BitGoMetricCard
+              key={`${block.title}-${metric.label}`}
+              value={metric.value}
+              label={metric.label}
+            />
+          ))}
+        </div>
+      </div>
+
+      <BitGoVisuals block={block} />
+    </div>
+  </motion.div>
+);
+
 const BitGoDetails = ({ blocks, expanded, onToggle }) => {
+  const [showEvenMore, setShowEvenMore] = useState(false);
+  const hasTail = blocks.length > BITGO_COLLAPSED_TAIL_COUNT;
+  const primaryBlocks = hasTail ? blocks.slice(0, blocks.length - BITGO_COLLAPSED_TAIL_COUNT) : blocks;
+  const tailBlocks = hasTail ? blocks.slice(-BITGO_COLLAPSED_TAIL_COUNT) : [];
+
+  useEffect(() => {
+    if (!expanded) setShowEvenMore(false);
+  }, [expanded]);
+
   return (
     <div className="mt-10 space-y-8">
       <motion.div
@@ -265,94 +364,50 @@ const BitGoDetails = ({ blocks, expanded, onToggle }) => {
 
       <DetailsToggle expanded={expanded} onToggle={onToggle} />
 
-      {expanded &&
-        blocks.map((block, index) => (
-          <motion.div
-            key={block.title}
-            layout
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.18 }}
-            transition={{ duration: 0.45, ease: "easeOut", delay: Math.min(index * 0.04, 0.2) }}
-            className="group relative overflow-hidden rounded-3xl border border-neutral-800/70 bg-neutral-950/40 p-6 shadow-xl shadow-black/20 backdrop-blur transition-all duration-300 hover:border-purple-400/30 hover:bg-neutral-950/60 lg:p-8"
-          >
-            <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-yellow-300 via-pink-400 to-purple-500 opacity-80" />
-            <div className="absolute -right-32 top-10 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      {expanded && (
+        <>
+          {primaryBlocks.map((block, index) => renderBitGoBlock(block, index))}
 
-            <div className="relative">
-              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-                <div className="min-w-0">
-                  <div className="mb-3 flex flex-wrap gap-2">
-                    {block.tags?.map((tag) => (
-                      <BitGoTag key={`${block.title}-${tag}`}>{tag}</BitGoTag>
-                    ))}
-                  </div>
-
-                  <h3 className="text-2xl font-semibold tracking-tight text-neutral-100 lg:text-3xl">
-                    {block.title}
-                  </h3>
-
-                  {block.subtitle && (
-                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-400">{block.subtitle}</p>
-                  )}
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-1 gap-7 lg:grid-cols-[1.35fr_0.65fr]">
-                <div>
-                  {(() => {
-                    const mergedDescription = [
-                      ...(block.description || []),
-                      ...(block.mainSections?.flatMap((s) => s.points || []) || []),
-                    ];
-
-                    return (
-                      <ul className="list-disc space-y-3 pl-5 leading-relaxed text-neutral-300/85">
-                        {mergedDescription.map((item, idx) => (
-                          <li key={`${block.title}-desc-${idx}`}>{item}</li>
-                        ))}
-                      </ul>
-                    );
-                  })()}
-
-                  <BitGoRuntimeFlow block={block} />
-
-                  {block.architecture?.length > 0 && (
-                    <div className="mt-6 rounded-2xl border border-neutral-800/70 bg-black/20 p-4">
-                      <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-                        Architecture Notes
-                      </div>
-
-                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        {block.architecture.map((item) => (
-                          <div
-                            key={`${block.title}-${item.label}`}
-                            className="rounded-xl border border-neutral-800/60 bg-neutral-900/40 p-3"
-                          >
-                            <div className="text-sm font-semibold text-neutral-200">{item.label}</div>
-                            <div className="mt-1 text-sm leading-relaxed text-neutral-400">{item.value}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
-                  {block.metrics?.map((metric) => (
-                    <BitGoMetricCard
-                      key={`${block.title}-${metric.label}`}
-                      value={metric.value}
-                      label={metric.label}
+          {hasTail && (
+            <>
+              <div className="flex justify-center pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowEvenMore((v) => !v)}
+                  aria-expanded={showEvenMore}
+                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-purple-400/25 bg-neutral-950/50 px-6 py-2.5 text-sm font-semibold tracking-tight text-neutral-100 shadow-lg shadow-black/25 backdrop-blur transition hover:border-purple-400/45 hover:bg-neutral-950/70 focus:outline-none focus:ring-0"
+                >
+                  <span className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+                    {showEvenMore ? "Show less" : "Show even more"}
+                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className={[
+                      "h-5 w-8 text-neutral-300 transition-transform duration-300 group-hover:text-white",
+                      showEvenMore ? "rotate-180" : "rotate-0",
+                    ].join(" ")}
+                  >
+                    <path
+                      d="M4 9l8 8 8-8"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
-                  ))}
-                </div>
+                  </svg>
+                </button>
               </div>
 
-              <BitGoVisuals block={block} />
-            </div>
-          </motion.div>
-        ))}
+              {showEvenMore &&
+                tailBlocks.map((block, index) =>
+                  renderBitGoBlock(block, primaryBlocks.length + index)
+                )}
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 };
