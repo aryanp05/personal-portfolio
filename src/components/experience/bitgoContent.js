@@ -85,41 +85,24 @@ export const BITGO_BLOCKS = [
       "A single runtime configuration architecture that turns TradeEngineConfigs cache changes into zero-downtime updates across WebSockets, ProductRegistry, and order book systems.",
     tags: ["Dynamic Config", "Caching", "WebSockets", "Order Books", "Atomic Pointers", "Reliability"],
     description: [
-      "Created a dynamic layer over the TradeEngineConfigs cache so product, trust, exchange, and trade-disabled changes could be detected without relying on startup-only snapshots.",
-      "Built a TradeEngineConfigsPoller that polls the live configuration source, diffs it against the cached snapshot, and emits granular strongly typed add, update, and delete events downstream.",
-      "Converted product and exchange configuration changes from restart-driven operational workflows into event-driven runtime updates while services remain online.",
-      "Designed the flow so the core config layer feeds three runtime consumers: WebSocket subscriptions, ProductRegistry mappings, and order book lifecycle management.",
+      "Built a dynamic layer over the TradeEngineConfigs cache with a live poller that detects product, trust, exchange, and trade-disabled config changes, diffs them against cached snapshots, and emits strongly typed add/update/delete events.",
+      "Converted restart-driven trade engine configuration workflows into zero-downtime runtime updates, propagating changes across WebSocket subscriptions, ProductRegistry mappings, and order book lifecycle management while services stayed online.",
     ],
     downstreamSections: [
       {
         title: "WebSocket subscription updates",
         body:
-          "Wired config events into the consolidated Talos WebSocket pipeline so product and exchange updates can change active market data subscriptions at runtime.",
-        points: [
-          "Uses Talos amend messages to add or remove product subscriptions on existing exchange connections.",
-          "Bootstraps only the required producer, fanout, and publisher pipeline when a new exchange needs to come online.",
-          "Avoids full service restarts for normal product add/remove workflows and keeps reconnect behavior state-safe.",
-        ],
+          "Wired config events into the Talos WebSocket pipeline so product and exchange subscriptions could update at runtime using amend messages. New exchanges bootstrap only the required producer, fanout, and publisher flow, avoiding full service restarts.",
       },
       {
         title: "ProductRegistry runtime refreshes",
         body:
-          "Refactored ProductRegistryService into a dynamic consumer of TradeEngineConfigs events while keeping lookup-heavy trade paths lock-free.",
-        points: [
-          "Rebuilds product, exchange, Talos, CoinRoutes, Plutus, and institution mapping indexes as immutable registry snapshots.",
-          "Swaps the active registry using atomic.Pointer so reads remain a single lock-free pointer load.",
-          "Allows product catalog updates to reach trade execution without restart-driven cache refreshes.",
-        ],
+          "Refactored ProductRegistryService to consume live config events and rebuild immutable mapping snapshots for products, exchanges, venues, and institutions. Active registries are swapped with atomic.Pointer, keeping trade-path lookups lock-free.",
       },
       {
         title: "Order book lifecycle updates",
         body:
-          "Extended the same runtime update stream into order book managers so liquidity provider changes are reflected without leaving stale market data behind.",
-        points: [
-          "Added AddExchange and RemoveExchange flows across CombinedOrderBook and OrderBookManager.",
-          "Clears exchange-specific book state immediately when an LP is removed to prevent stale liquidity from remaining visible.",
-          "Uses context-cancellation-based lifecycle management for market data managers, logging services, and Pushpin publisher updates.",
-        ],
+          "Extended runtime config updates into order book managers so exchange additions/removals take effect without stale market data. Added AddExchange and RemoveExchange flows with cleanup and context-based lifecycle management.",
       },
     ],
     metrics: [
@@ -147,10 +130,8 @@ export const BITGO_BLOCKS = [
       "A dedicated market data feed for TCA with prime-org scoped caching and configurable Talos subscription options.",
     tags: ["Redis", "TCA", "Prime Org", "Market Data"],
     description: [
-      "Architected a new TCA market data feed separate from the trade feed, optimized for downstream Transaction Cost Analysis consumers.",
-      "Changed Redis snapshot cache keys from trust-org scoped to prime-org scoped, collapsing duplicate snapshots across multiple trusts that share the same liquidity provider.",
-      "Built a new PrimeOrgProductCompositeKey, Level2SnapshotClient namespace, optional Redis batch-write support, and TCAMarketDataMetricsRegistry.",
-      "Refactored WebSocketFeedOptions so trade and TCA feeds can reuse infrastructure while subscribing with different fee modes and liquidity types.",
+      "Architected a dedicated TCA market data feed separate from the trade feed, enabling downstream Transaction Cost Analysis consumers to subscribe with specialized fee modes, liquidity types, and market data requirements.",
+      "Reduced duplicate Redis snapshot caching by moving from trust-org scoped keys to prime-org scoped keys, using a new PrimeOrgProductCompositeKey, batched Redis writes, and dedicated TCA metrics to support more efficient Level 2 snapshot delivery.",
     ],
     metrics: [
       { value: "Prime-org", label: "cache strategy to reduce duplicate snapshots" },
@@ -191,10 +172,8 @@ export const BITGO_BLOCKS = [
     subtitle: "A multi-liquidity-provider order book dashboard widget for internal trading operators.",
     tags: ["React", "GraphQL", "WebSockets", "Trading UI"],
     description: [
-      "Built the internal Order Book Squares dashboard from scratch, enabling operators to monitor multiple product/liquidity-provider views in compact dashboard panels.",
-      "Implemented a reference-counted SubscriptionManager singleton so multiple UI squares watching the same product coalesce into a single WebSocket subscription.",
-      "Replaced raw price spread with BPS spread calculation, making very tight spreads readable for stablecoins and other small-spread products.",
-      "Added a page-scoped Prime Org selector through PostgreSQL, GraphQL, and React state, allowing operators to scope the dashboard to a specific legal entity.",
+      "Built the internal Order Book Squares dashboard from scratch, giving operators compact real-time panels to monitor multiple product and liquidity-provider order book views.",
+      "Implemented a reference-counted SubscriptionManager to coalesce duplicate UI views into a single WebSocket subscription, while adding BPS spread calculations and a Prime Org selector across PostgreSQL, GraphQL, and React.",
     ],
     metrics: [
       { value: "1 sub", label: "per product regardless of open squares" },
@@ -225,10 +204,8 @@ export const BITGO_BLOCKS = [
     subtitle: "A full-stack health dashboard showing whether each exchange is healthy, degraded, or offline.",
     tags: ["GraphQL", "React", "Monitoring", "LP Health"],
     description: [
-      "Built an end-to-end real-time LP health monitoring strip for the internal trading dashboard, giving operators immediate visibility into exchange market data health.",
-      "Implemented a GraphQL resolver that reads from the LP Status Cache and aggregates product-level state into tri-state exchange health indicators.",
-      "Added optional prime-org filtering and a React strip UI that expands into product-level detail when an operator clicks an exchange.",
-      "Covered the resolver behavior with backend unit tests to protect health aggregation logic from regressions.",
+      "Built an end-to-end real-time LP health monitoring strip for the internal trading dashboard, giving operators immediate visibility into exchange market data health across liquidity providers.",
+      "Implemented a GraphQL resolver over the LP Status Cache to aggregate product-level state into tri-state exchange health indicators, with prime-org filtering, expandable React product detail views, and backend unit test coverage.",
     ],
     metrics: [
       { value: "3 states", label: "healthy, degraded, offline" },
@@ -249,75 +226,4 @@ export const BITGO_BLOCKS = [
       },
     },
   },
-  {
-    title: "Historical Order Book Filtering & UX Improvements",
-    subtitle:
-      "A set of full-stack improvements that made historical market data filtering faster, safer, and easier to use.",
-    tags: ["PostgreSQL", "GraphQL", "TypeScript", "Historical Data"],
-    description: [
-      "Migrated historical order book filtering from fragile string-based exchange identifiers to stable UUID-based institution filtering with a new indexed institution_id column.",
-      "Added dashboard support for institution UUID filtering and two-level prime-org to institution filtering, computing intersections client-side to avoid unnecessary backend roundtrips.",
-      "Improved historical order book UX by changing the default depth from 5 levels to 1, extending the dropdown to 10 levels, and adding always-present filter chips with clear Any defaults.",
-      "Added bid and ask price decimal filters over JSONB-backed order book data using precise decimal comparison semantics in Go.",
-    ],
-    metrics: [
-      { value: "UUID", label: "stable institution-based filtering" },
-      { value: "1 → 10", label: "default depth reduced, max depth expanded" },
-      { value: "Faster UX", label: "less data fetched on initial page load" },
-    ],
-    architecture: [
-      { label: "Migration", value: "Added nullable institution_id and index to partitioned table." },
-      { label: "GraphQL", value: "Exposed institutionId as filterable/sortable field." },
-      { label: "Client", value: "Builds UUID label maps from exchange product data." },
-      { label: "Cleanup", value: "Removed old string filter after migration safety window." },
-    ],
-  },
-  {
-    title: "Cumulative Order Book Depth API",
-    subtitle:
-      "A backward-compatible API feature for cumulative Level 2 depth across REST and WebSocket transports.",
-    tags: ["REST", "WebSockets", "OpenAPI", "Decimal Math"],
-    description: [
-      "Delivered cumulative size as an opt-in Level 2 order book snapshot feature across both REST and WebSocket APIs.",
-      "Preserved the existing price/size response format by default while allowing clients to request cumulative depth through includeCumulative.",
-      "Implemented cumulative depth with decimal.Decimal arithmetic as sorted levels are traversed, avoiding precision loss for financial data.",
-      "Authored OpenAPI documentation with examples for both default and cumulative response formats.",
-    ],
-    metrics: [
-      { value: "Opt-in", label: "backward-compatible API format" },
-      { value: "REST + WS", label: "supported across both transports" },
-      { value: "Decimal", label: "precision-safe cumulative depth" },
-    ],
-    architecture: [
-      { label: "Default", value: "[price, size] remains unchanged." },
-      { label: "Cumulative", value: "[price, size, cumulativeSize] when requested." },
-      { label: "WebSocket safety", value: "Requires unsubscribe before changing cumulative mode." },
-      { label: "Docs", value: "OpenAPI examples cover both formats." },
-    ],
-  },
-  {
-    title: "Internal Trading Tooling Quality Improvements",
-    subtitle:
-      "Smaller but high-impact fixes that improved operator workflows, navigation, and WebSocket error visibility.",
-    tags: ["Internal Tools", "Routing", "Bug Fixes", "Developer Experience"],
-    description: [
-      "Restructured internal dashboard navigation to surface Market Data as a first-class section with dedicated routes for order books, historical order book, and historical reference price.",
-      "Removed trust-org constraints from market data pages so operators could view cross-trust exchange product data without session switching.",
-      "Added contextual Market Prices deep-links from client orders into historical order book views with pre-populated product and timestamp filters.",
-      "Fixed a broken Client Fill to Exchange Fill navigation path by replacing fragile manual query strings with the app’s canonical createHashSearchParams helper.",
-      "Restored WebSocket validation error visibility by correcting the LuminaWebsocketClient error emitter path and adding comprehensive tests around message handling.",
-    ],
-    metrics: [
-      { value: "1 click", label: "from order to historical market context" },
-      { value: "Cross-trust", label: "market data visibility for operators" },
-      { value: "137 lines", label: "WebSocket client regression test coverage" },
-    ],
-    architecture: [
-      { label: "Navigation", value: "Dedicated Market Data route group." },
-      { label: "Deep links", value: "Pre-populated filters from order context." },
-      { label: "Error propagation", value: "emitError restores downstream listener visibility." },
-      { label: "Routing", value: "Canonical hash search params replace fragile string building." },
-    ],
-  },
 ];
-

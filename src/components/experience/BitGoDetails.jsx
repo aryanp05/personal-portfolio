@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import DetailsToggle from "./DetailsToggle";
 
-const BITGO_COLLAPSED_TAIL_COUNT = 5;
+// Order Book Squares + LP Health Strip — shown after "Show even more"
+const BITGO_COLLAPSED_TAIL_COUNT = 2;
 
 const ImageCarousel = ({ title, label, images, aspectClass = "aspect-[24/9]" }) => {
   const [idx, setIdx] = useState(0);
@@ -276,25 +277,7 @@ const renderBitGoBlock = (block, index) => (
 
           <BitGoRuntimeFlow block={block} />
 
-          {block.architecture?.length > 0 && (
-            <div className="mt-6 rounded-2xl border border-neutral-800/70 bg-black/20 p-4">
-              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-neutral-500">
-                Architecture Notes
-              </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {block.architecture.map((item) => (
-                  <div
-                    key={`${block.title}-${item.label}`}
-                    className="rounded-xl border border-neutral-800/60 bg-neutral-900/40 p-3"
-                  >
-                    <div className="text-sm font-semibold text-neutral-200">{item.label}</div>
-                    <div className="mt-1 text-sm leading-relaxed text-neutral-400">{item.value}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
@@ -315,7 +298,8 @@ const renderBitGoBlock = (block, index) => (
 
 const BitGoDetails = ({ blocks, expanded, onToggle }) => {
   const [showEvenMore, setShowEvenMore] = useState(false);
-  const hasTail = blocks.length > BITGO_COLLAPSED_TAIL_COUNT;
+  const hasTail =
+    BITGO_COLLAPSED_TAIL_COUNT > 0 && blocks.length > BITGO_COLLAPSED_TAIL_COUNT;
   const primaryBlocks = hasTail ? blocks.slice(0, blocks.length - BITGO_COLLAPSED_TAIL_COUNT) : blocks;
   const tailBlocks = hasTail ? blocks.slice(-BITGO_COLLAPSED_TAIL_COUNT) : [];
 
